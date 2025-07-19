@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="border-b">
+      <header className="border-b sticky top-0 z-50 bg-white">
         <div className="container flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2" aria-label="Go to homepage">
             <div className="w-8 h-8 bg-gradient-medical rounded-lg flex items-center justify-center">
@@ -20,7 +20,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="flex items-center gap-4">
             <Button variant="ghost">Nosotros</Button>
             <Button variant="ghost">Servicios</Button>
+            <Link to="/agendar-consulta#top">
             <Button variant="ghost">Contacto</Button>
+            </Link>
             <Button variant="medical">Acceso Clientes</Button>
           </div>
         </div>

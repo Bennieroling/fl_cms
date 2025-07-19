@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import ContactInfo from "@/components/forms/contact-info";
 import { 
   Stethoscope, 
   Shield, 
@@ -53,10 +54,12 @@ const Index = () => {
               Medicina laboral personalizada para tu empresa: atención en tu oficina o en nuestro centro, exámenes, control de ausentismo, asesoría legal y prevención. Cumplí con la normativa, cuidá a tu equipo y mejorá tus resultados.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="hero" size="lg" className="group">
-                Contáctanos
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="agendar-consulta#top">
+                <Button variant="hero" size="lg" className="group">
+                  Contáctanos
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+               </Link> 
               <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
                 Ver Planes
               </Button>
@@ -149,7 +152,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h3 className="text-3xl font-bold mb-6">
-                ¿Por qué eligen MedClinic Portal?
+                ¿Por qué eligen CWS Centro Médico Laboral?
               </h3>
               <div className="space-y-6">
                 {[
@@ -175,7 +178,7 @@ const Index = () => {
                     Diseñado para PyMEs y grandes empresas
                   </p>
                 </div>
-                <Link to="/agendar-consulta">
+                <Link to="/agendar-consulta#top">
                   <Button variant="medical" className="w-full" size="lg">
                     Agendar Consulta
                   </Button>
@@ -196,7 +199,7 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                quote: "MedClinic Portal transformó nuestra gestión en salud laboral. Reducimos el papeleo un 80% y mejoramos el cumplimiento.",
+                quote: "CWS Centro Médico Laboral transformó nuestra gestión en salud laboral. Reducimos el papeleo un 80% y mejoramos el cumplimiento.",
                 author: "Sarah Johnson",
                 title: "HR Director, TechCorp",
                 rating: 5
@@ -247,20 +250,7 @@ const Index = () => {
               <Card className="shadow-professional">
                 <CardContent className="p-8">
                   <h4 className="text-xl font-semibold mb-6">Contáctenos</h4>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <Phone className="w-5 h-5 text-primary" />
-                      <span>(555) 123-4567</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Mail className="w-5 h-5 text-primary" />
-                      <span>info@medclinicportal.com</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <MapPin className="w-5 h-5 text-primary" />
-                      <span>Avenida Corrientes 587, San Nicolás, C1042AAN, Buenos Aires</span>
-                    </div>
-                  </div>
+                  <ContactInfo />
                 </CardContent>
               </Card>
               <Card className="shadow-professional">
