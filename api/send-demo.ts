@@ -29,18 +29,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const confirmationTemplate = fs.readFileSync(path.join(process.cwd(), 'templates', 'confirmation_email.html'), 'utf-8');
 
     const populatedNotification = notificationTemplate
-      .replace('${fullName}', fullName)
-      .replace('${phone}', phone)
-      .replace('${companyName}', companyName)
-      .replace('${email}', email)
-      .replace('${message}', message);
+      .replace(/{{nombre-contacto}}/g, fullName)
+      .replace(/{{telefono}}/g, phone)
+      .replace(/{{nombre-empresa}}/g, companyName)
+      .replace(/{{contact-email}}/g, email)
+      .replace(/{{mensaje}}/g, message);
 
     const populatedConfirmation = confirmationTemplate
-      .replace('${fullName}', fullName)
-      .replace('${phone}', phone)
-      .replace('${companyName}', companyName)
-      .replace('${email}', email)
-      .replace('${message}', message);
+      .replace(/{{nombre-contacto}}/g, fullName)
+      .replace(/{{telefono}}/g, phone)
+      .replace(/{{nombre-empresa}}/g, companyName)
+      .replace(/{{contact-email}}/g, email)
+      .replace(/{{mensaje}}/g, message);
 
     await resend.emails.send({
       from: 'CWS Centro Médico <no-reply@festinalente.dev>',
