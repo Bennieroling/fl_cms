@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import heroImage from "@/assets/medical-hero.jpg";
 import { useState } from "react";
+import DemoRequestForm from "@/components/forms/Form";
 
 const Index = () => {
   const [form, setForm] = useState({ name: "", email: "", employees: "" });
@@ -53,7 +54,7 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button variant="hero" size="lg" className="group">
-                Solicitar Demostración
+                Contáctanos
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
@@ -264,76 +265,8 @@ const Index = () => {
               </Card>
               <Card className="shadow-professional">
                 <CardContent className="p-8">
-                  <h4 className="text-xl font-semibold mb-6">Solicitar Demostración</h4>
-                  <div className="space-y-4">
-                    <div>
-                      <Label htmlFor="name">Nombre de la Empresa</Label>
-                      <Input
-                        id="name"
-                        placeholder="Your company name"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="contact-email">Correo Electrónico</Label>
-                      <Input
-                        id="contact-email"
-                        type="email"
-                        placeholder="your@company.com"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="employees">Cantidad de Empleados</Label>
-                      <Input
-                        id="employees"
-                        placeholder="e.g., 50-100"
-                        value={form.employees}
-                        onChange={(e) => setForm({ ...form, employees: e.target.value })}
-                      />
-                    </div>
-                    <Button
-                      variant="medical"
-                      className="w-full"
-                      disabled={status === "sending"}
-                      onClick={async () => {
-                        try {
-                          setStatus("sending");
-                          const response = await fetch("/api/send-demo", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({
-                              companyName: form.name,
-                              email: form.email,
-                              employees: form.employees
-                            })
-                          });
-
-                          const result = await response.json();
-
-                          if (response.ok) {
-                            setStatus("success");
-                          } else {
-                            console.error("❌ API error:", result.error);
-                            setStatus("error");
-                          }
-                        } catch (err) {
-                          console.error("❌ Network error:", err);
-                          setStatus("error");
-                        }
-                      }}
-                    >
-                      {status === "sending" ? "Enviando..." : "Solicitar Demostración"}
-                    </Button>
-                    {status === "success" && (
-                      <div className="text-green-600 text-center mt-2">¡Solicitud enviada correctamente!</div>
-                    )}
-                    {status === "error" && (
-                      <div className="text-red-600 text-center mt-2">Ocurrió un error al enviar. Intente nuevamente.</div>
-                    )}
-                  </div>
+                  <h4 className="text-xl font-semibold mb-6">Contáctanos</h4>
+                  <DemoRequestForm />
                 </CardContent>
               </Card>
             </div>
