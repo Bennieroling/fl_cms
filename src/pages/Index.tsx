@@ -301,7 +301,7 @@ const Index = () => {
                       onClick={async () => {
                         try {
                           setStatus("sending");
-                          await fetch("/api/send-demo", {
+                          const response = await fetch("/api/send-demo", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({
@@ -310,8 +310,17 @@ const Index = () => {
                               employees: form.employees
                             })
                           });
-                          setStatus("success");
-                        } catch {
+
+                          const result = await response.json();
+
+                          if (response.ok) {
+                            setStatus("success");
+                          } else {
+                            console.error("❌ API error:", result.error);
+                            setStatus("error");
+                          }
+                        } catch (err) {
+                          console.error("❌ Network error:", err);
                           setStatus("error");
                         }
                       }}
