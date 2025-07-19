@@ -39,6 +39,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     console.log("📨 Resend API Response:", response);
 
+    console.log("📨 Sending confirmation email to user...");
+    /*
     await resend.emails.send({
       from: "no-reply@festinalente.dev",
       to: email,
@@ -104,6 +106,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         </html>
       `
     });
+    */
 
     return res.status(200).send("OK");
   } catch (error) {
