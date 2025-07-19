@@ -13,6 +13,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const { ['nombre-contacto']: fullName, telefono: phone, ['nombre-empresa']: companyName, ['contact-email']: email, mensaje: message } = req.body;
 
+    console.log('📩 Incoming form data:', {
+      fullName,
+      phone,
+      companyName,
+      email,
+      message
+    });
+
     if (!fullName || !phone || !companyName || !email || !message) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
