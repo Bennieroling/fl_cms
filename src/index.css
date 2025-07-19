@@ -41,6 +41,8 @@ All colors MUST be HSL.
     --ring: 210 100% 40%;
     
     --gradient-medical: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--medical-green)));
+    --gradient-medical-reverse: linear-gradient(to left, #006699, #00b894);
+
     --shadow-professional: 0 4px 20px hsl(var(--primary) / 0.1);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 

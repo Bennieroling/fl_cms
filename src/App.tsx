@@ -8,6 +8,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AgendarConsulta from "./pages/AgendarConsulta";
+import Nosotros from "./pages/Nosotros";
+import Servicios from "./pages/Servicios";
 
 function ScrollToHash() {
   const { hash } = useLocation();
@@ -38,6 +40,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
+          <Route path="/Nosotros" element={<Nosotros />} />
+          <Route path="/Servicios" element={<Servicios />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

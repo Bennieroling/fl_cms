@@ -54,15 +54,21 @@ const Index = () => {
               Medicina laboral personalizada para tu empresa: atención en tu oficina o en nuestro centro, exámenes, control de ausentismo, asesoría legal y prevención. Cumplí con la normativa, cuidá a tu equipo y mejorá tus resultados.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="agendar-consulta#top">
+              <Link to="agendar-consulta#contacto">
                 <Button variant="hero" size="lg" className="group">
                   Contáctanos
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
                </Link> 
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+                <Link to="agendar-consulta#top">
+                <Button variant="hero2" size="lg" className="group">
+                  Agendar Consulta
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+               </Link> 
+              {/* <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
                 Ver Planes
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>

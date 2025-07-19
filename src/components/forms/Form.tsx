@@ -1,32 +1,50 @@
-
-
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage
+} from "@/components/ui/form";
 
-const Form = () => {
-  const [form, setForm] = useState({
-    "nombre-contacto": "",
-    telefono: "",
-    "nombre-empresa": "",
-    "contact-email": "",
-    mensaje: ""
-  });
+type FormValues = {
+  nombreContacto: string;
+  telefono: string;
+  nombreEmpresa: string;
+  contactEmail: string;
+  mensaje: string;
+};
+
+const ContactForm = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  const handleSubmit = async () => {
+  const form = useForm<FormValues>({
+    defaultValues: {
+      nombreContacto: "",
+      telefono: "",
+      nombreEmpresa: "",
+      contactEmail: "",
+      mensaje: ""
+    }
+  });
+
+  const onSubmit = async (values: FormValues) => {
     try {
       setStatus("sending");
       const response = await fetch("/api/send-demo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          fullName: form["nombre-contacto"],
-          phone: form.telefono,
-          companyName: form["nombre-empresa"],
-          email: form["contact-email"],
-          message: form.mensaje
+          fullName: values.nombreContacto,
+          phone: values.telefono,
+          companyName: values.nombreEmpresa,
+          email: values.contactEmail,
+          message: values.mensaje
         })
       });
 
@@ -39,71 +57,107 @@ const Form = () => {
   };
 
   return (
-    <div className="space-y-4">
-      <div className="flex gap-4">
-        <div className="flex-1">
-          <Label htmlFor="nombre-contacto">Nombre y Apellido</Label>
-          <Input
-            id="nombre-contacto"
-            placeholder="Nombre y Apellido"
-            value={form["nombre-contacto"]}
-            onChange={(e) => setForm({ ...form, ["nombre-contacto"]: e.target.value })}
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <div className="flex gap-4">
+          <FormField
+            control={form.control}
+            name="nombreContacto"
+            rules={{ required: "Este campo es obligatorio" }}
+            render={({ field }) => (
+              <FormItem className="flex-1">
+                <FormLabel>Nombre y Apellido</FormLabel>
+                <FormControl>
+                  <Input placeholder="Nombre y Apellido" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="telefono"
+            render={({ field }) => (
+              <FormItem className="flex-1">
+                <FormLabel>Télefono</FormLabel>
+                <FormControl>
+                  <Input placeholder="Télefono" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
         </div>
-        <div className="flex-1">
-          <Label htmlFor="telefono">Télefono</Label>
-          <Input
-            id="telefono"
-            placeholder="Télefono"
-            value={form.telefono}
-            onChange={(e) => setForm({ ...form, telefono: e.target.value })}
-          />
-        </div>
-      </div>
-      <div>
-        <Label htmlFor="nombre-empresa">Nombre de la Empresa</Label>
-        <Input
-          id="nombre-empresa"
-          placeholder="Nombre de la empresa"
-          value={form["nombre-empresa"]}
-          onChange={(e) => setForm({ ...form, ["nombre-empresa"]: e.target.value })}
+
+        <FormField
+          control={form.control}
+          name="nombreEmpresa"
+          rules={{ required: "Este campo es obligatorio" }}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Nombre de la Empresa</FormLabel>
+              <FormControl>
+                <Input placeholder="Nombre de la empresa" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-      </div>
-      <div>
-        <Label htmlFor="contact-email">Correo electrónico</Label>
-        <Input
-          id="contact-email"
-          type="email"
-          placeholder="tu@empresa.com"
-          value={form["contact-email"]}
-          onChange={(e) => setForm({ ...form, ["contact-email"]: e.target.value })}
+
+        <FormField
+          control={form.control}
+          name="contactEmail"
+          rules={{
+            required: "Este campo es obligatorio",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Correo no válido"
+            }
+          }}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Correo electrónico</FormLabel>
+              <FormControl>
+                <Input type="email" placeholder="tu@empresa.com" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-      </div>
-      <div>
-        <Label htmlFor="mensaje">Mensaje</Label>
-        <Input
-          id="mensaje"
-          placeholder="Mensaje"
-          value={form.mensaje}
-          onChange={(e) => setForm({ ...form, mensaje: e.target.value })}
+
+        <FormField
+          control={form.control}
+          name="mensaje"
+          rules={{ required: "Este campo es obligatorio" }}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Mensaje</FormLabel>
+              <FormControl>
+                <Input placeholder="Mensaje" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-      </div>
-      <Button
-        variant="medical"
-        className="w-full"
-        disabled={status === "sending"}
-        onClick={handleSubmit}
-      >
-        {status === "sending" ? "Enviando..." : "Enviar Consulta"}
-      </Button>
-      {status === "success" && (
-        <div className="text-green-600 text-center mt-2">Enviar consulta</div>
-      )}
-      {status === "error" && (
-        <div className="text-red-600 text-center mt-2">Ocurrió un error al enviar. Intente nuevamente.</div>
-      )}
-    </div>
+
+        <Button
+          variant="medical"
+          className="w-full"
+          type="submit"
+          disabled={status === "sending"}
+        >
+          {status === "sending" ? "Enviando..." : "Enviar Consulta"}
+        </Button>
+
+        {status === "success" && (
+          <div className="text-green-600 text-center mt-2">Consulta enviada con éxito.</div>
+        )}
+        {status === "error" && (
+          <div className="text-red-600 text-center mt-2">Ocurrió un error al enviar. Intente nuevamente.</div>
+        )}
+      </form>
+    </Form>
   );
 };
 
-export default Form;
+export default ContactForm;
