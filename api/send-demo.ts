@@ -25,7 +25,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const response = await resend.emails.send({
+    console.log("📤 Sending internal notification email...");
+    const adminResponse = await resend.emails.send({
       from: "no-reply@festinalente.dev",
       to: "festinalentedev2021@gmail.com",
       subject: "Nueva solicitud de demostración",
@@ -36,12 +37,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         <p><strong>Cantidad de Empleados:</strong> ${employees}</p>
       `
     });
+    console.log("✅ Admin email response:", adminResponse);
+  } catch (adminError) {
+    console.error("❌ Failed to send admin email:", adminError);
+    return res.status(500).send("Error sending admin email");
+  }
 
-    console.log("📨 Resend API Response:", response);
-
-    console.log("📨 Sending confirmation email to user...");
-    /*commented out temperary
-    await resend.emails.send({
+  try {
+    console.log("📤 Sending confirmation email to user...");
+    /*
+    const confirmResponse = await resend.emails.send({
       from: "no-reply@festinalente.dev",
       to: email,
       subject: "Confirmación de solicitud de demostración",
@@ -106,11 +111,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         </html>
       `
     });
+    console.log("✅ Confirmation email response:", confirmResponse);
     */
-
-    return res.status(200).send("OK");
-  } catch (error) {
-    console.error("❌ Resend email failed:", error);
-    return res.status(500).send("Unexpected error: " + (error as Error).message);
+  } catch (confirmError) {
+    console.error("❌ Failed to send confirmation email:", confirmError);
+    return res.status(500).send("Error sending confirmation email");
   }
+
+  return res.status(200).send("OK");
 }
