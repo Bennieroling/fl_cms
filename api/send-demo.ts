@@ -11,7 +11,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { ['nombre-contacto']: fullName, telefono: phone, ['nombre-empresa']: companyName, ['contact-email']: email, mensaje: message } = req.body;
+    const { fullName, phone, companyName, email, message } = req.body;
 
     console.log('📩 Incoming form data:', {
       fullName,
