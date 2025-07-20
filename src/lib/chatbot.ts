@@ -1,4 +1,4 @@
-export async function sendToBot(message: string): Promise<string> {
+export async function sendToBot(message: string | null = null): Promise<string> {
   try {
     const res = await fetch("https://ops.festinalente.dev/webhook/demo-chat", {
       method: "POST",
@@ -12,4 +12,8 @@ export async function sendToBot(message: string): Promise<string> {
     console.error("Bot error:", err);
     return "Ocurrió un error. Intenta más tarde.";
   }
+}
+
+export async function initBot(): Promise<string> {
+  return await sendToBot("¡Hola! ¿En qué puedo ayudarte hoy?");
 }
