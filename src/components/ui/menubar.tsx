@@ -248,7 +248,9 @@ const MenubarMain = () => {
         <Link to="/nosotros" className="text-sm font-medium">Nosotros</Link>
         <Link to="/servicios" className="px-4 py-2 hover:bg-gray-100">Servicios</Link>
         <Link to="/agendar-consulta#hero" className="text-sm font-medium">Contacto</Link>
-         <Button variant="medical">Acceso Clientes</Button>
+         <Link to="/login" className="px-4 py-2 hover:bg-gray-100">
+            <Button variant="medical">Acceso Clientes</Button>
+          </Link>
       </div>
 
       {/* Mobile Menu Toggle */}
@@ -266,7 +268,9 @@ const MenubarMain = () => {
           <Link to="/nosotros" className="text-sm font-medium">Nosotros</Link>
           <Link to="/servicios" className="px-4 py-2 hover:bg-gray-100">Servicios</Link>
           <Link to="/agendar-consulta#hero" className="px-4 py-2 hover:bg-gray-100">Contacto</Link>
-          <Button variant="medical">Acceso Clientes</Button>
+          <Link to="/login" className="px-4 py-2 hover:bg-gray-100">
+            <Button variant="medical">Acceso Clientes</Button>
+          </Link>
         </div>
       )}
     </div>

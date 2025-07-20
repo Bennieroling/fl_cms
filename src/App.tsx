@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import AgendarConsulta from "./pages/AgendarConsulta";
 import Nosotros from "./pages/Nosotros";
 import Servicios from "./pages/Servicios";
+import Login from "./pages/Login";
 
 function ScrollToHash() {
   const { hash } = useLocation();
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
           <Route path="/Nosotros" element={<Nosotros />} />
           <Route path="/Servicios" element={<Servicios />} />
+          <Route path="/Login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
