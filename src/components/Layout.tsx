@@ -16,7 +16,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <div className="w-8 h-8 bg-gradient-medical rounded-lg flex items-center justify-center">
               <Stethoscope className="w-5 h-5 text-white" />
             </div>
-            <h1 className="text-xl font-bold text-foreground">CWS Centro Médico Laboral</h1>
+            <h1 className="text-xl font-bold text-foreground">C.M.S LABORAL</h1>
           </Link>
           <MenubarMain />
         </div>
