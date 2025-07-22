@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import ContactInfo from "@/components/forms/contact-info";
 import { 
   Stethoscope, 
   Shield, 
@@ -22,6 +23,7 @@ import {
 } from "lucide-react";
 import heroImage from "@/assets/medical-hero.jpg";
 import { useState } from "react";
+import DemoRequestForm from "@/components/forms/Form";
 
 const Index = () => {
   const [form, setForm] = useState({ name: "", email: "", employees: "" });
@@ -52,13 +54,21 @@ const Index = () => {
               Medicina laboral personalizada para tu empresa: atención en tu oficina o en nuestro centro, exámenes, control de ausentismo, asesoría legal y prevención. Cumplí con la normativa, cuidá a tu equipo y mejorá tus resultados.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="hero" size="lg" className="group">
-                Solicitar Demostración
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+              <Link to="agendar-consulta#contacto">
+                <Button variant="hero" size="lg" className="group">
+                  Contáctanos
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+               </Link> 
+                <Link to="agendar-consulta#top">
+                <Button variant="hero2" size="lg" className="group">
+                  Agendar Consulta
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+               </Link> 
+              {/* <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
                 Ver Planes
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>
@@ -148,7 +158,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h3 className="text-3xl font-bold mb-6">
-                ¿Por qué eligen MedClinic Portal?
+                ¿Por qué eligen CWS Centro Médico Laboral?
               </h3>
               <div className="space-y-6">
                 {[
@@ -174,7 +184,7 @@ const Index = () => {
                     Diseñado para PyMEs y grandes empresas
                   </p>
                 </div>
-                <Link to="/agendar-consulta">
+                <Link to="/agendar-consulta#top">
                   <Button variant="medical" className="w-full" size="lg">
                     Agendar Consulta
                   </Button>
@@ -195,7 +205,7 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                quote: "MedClinic Portal transformó nuestra gestión en salud laboral. Reducimos el papeleo un 80% y mejoramos el cumplimiento.",
+                quote: "CWS Centro Médico Laboral transformó nuestra gestión en salud laboral. Reducimos el papeleo un 80% y mejoramos el cumplimiento.",
                 author: "Sarah Johnson",
                 title: "HR Director, TechCorp",
                 rating: 5
@@ -246,85 +256,13 @@ const Index = () => {
               <Card className="shadow-professional">
                 <CardContent className="p-8">
                   <h4 className="text-xl font-semibold mb-6">Contáctenos</h4>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <Phone className="w-5 h-5 text-primary" />
-                      <span>(555) 123-4567</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Mail className="w-5 h-5 text-primary" />
-                      <span>info@medclinicportal.com</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <MapPin className="w-5 h-5 text-primary" />
-                      <span>Avenida Corrientes 587, San Nicolás, C1042AAN, Buenos Aires</span>
-                    </div>
-                  </div>
+                  <ContactInfo />
                 </CardContent>
               </Card>
               <Card className="shadow-professional">
                 <CardContent className="p-8">
-                  <h4 className="text-xl font-semibold mb-6">Solicitar Demostración</h4>
-                  <div className="space-y-4">
-                    <div>
-                      <Label htmlFor="name">Nombre de la Empresa</Label>
-                      <Input
-                        id="name"
-                        placeholder="Your company name"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="contact-email">Correo Electrónico</Label>
-                      <Input
-                        id="contact-email"
-                        type="email"
-                        placeholder="your@company.com"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="employees">Cantidad de Empleados</Label>
-                      <Input
-                        id="employees"
-                        placeholder="e.g., 50-100"
-                        value={form.employees}
-                        onChange={(e) => setForm({ ...form, employees: e.target.value })}
-                      />
-                    </div>
-                    <Button
-                      variant="medical"
-                      className="w-full"
-                      disabled={status === "sending"}
-                      onClick={async () => {
-                        try {
-                          setStatus("sending");
-                          await fetch("/api/send-demo", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({
-                              companyName: form.name,
-                              email: form.email,
-                              employees: form.employees
-                            })
-                          });
-                          setStatus("success");
-                        } catch {
-                          setStatus("error");
-                        }
-                      }}
-                    >
-                      {status === "sending" ? "Enviando..." : "Solicitar Demostración"}
-                    </Button>
-                    {status === "success" && (
-                      <div className="text-green-600 text-center mt-2">¡Solicitud enviada correctamente!</div>
-                    )}
-                    {status === "error" && (
-                      <div className="text-red-600 text-center mt-2">Ocurrió un error al enviar. Intente nuevamente.</div>
-                    )}
-                  </div>
+                  <h4 className="text-xl font-semibold mb-6">Contáctanos</h4>
+                  <DemoRequestForm />
                 </CardContent>
               </Card>
             </div>

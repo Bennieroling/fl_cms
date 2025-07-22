@@ -1,6 +1,7 @@
 import * as React from "react"
 import * as MenubarPrimitive from "@radix-ui/react-menubar"
 import { Check, ChevronRight, Circle } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 import { cn } from "@/lib/utils"
 
@@ -232,3 +233,48 @@ export {
   MenubarSub,
   MenubarShortcut,
 }
+
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { Menu, X } from "lucide-react"
+
+const MenubarMain = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div className="relative">
+      {/* Desktop Menu */}
+      <div className="hidden sm:flex items-center gap-4">
+        <Link to="/nosotros" className="text-sm font-medium">Nosotros</Link>
+        <Link to="/servicios" className="px-4 py-2 hover:bg-gray-100">Servicios</Link>
+        <Link to="/agendar-consulta#hero" className="text-sm font-medium">Contacto</Link>
+         <Link to="/login" className="px-4 py-2 hover:bg-gray-100">
+            <Button variant="medical">Acceso Clientes</Button>
+          </Link>
+      </div>
+
+      {/* Mobile Menu Toggle */}
+      <button
+        className="sm:hidden p-2"
+        onClick={() => setIsOpen(prev => !prev)}
+        aria-label="Toggle menu"
+      >
+        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
+
+      {/* Mobile Dropdown Menu */}
+      {isOpen && (
+        <div className="absolute right-0 mt-2 w-48 rounded-md bg-white shadow-lg border z-50 sm:hidden flex flex-col">
+          <Link to="/nosotros" className="text-sm font-medium">Nosotros</Link>
+          <Link to="/servicios" className="px-4 py-2 hover:bg-gray-100">Servicios</Link>
+          <Link to="/agendar-consulta#hero" className="px-4 py-2 hover:bg-gray-100">Contacto</Link>
+          <Link to="/login" className="px-4 py-2 hover:bg-gray-100">
+            <Button variant="medical">Acceso Clientes</Button>
+          </Link>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default MenubarMain

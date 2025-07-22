@@ -98,7 +98,8 @@ export default {
 				'slide-up': 'slide-up 0.4s ease-out'
 			},
 			backgroundImage: {
-				'gradient-medical': 'var(--gradient-medical)'
+				'gradient-medical': 'var(--gradient-medical)',
+				'gradient-medical-reverse': 'var(--gradient-medical-reverse)'
 			},
 			boxShadow: {
 				'professional': 'var(--shadow-professional)'

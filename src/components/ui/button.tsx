@@ -20,6 +20,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         medical: "bg-medical-green text-white hover:bg-medical-green/90 shadow-professional",
         hero: "bg-gradient-medical text-white hover:opacity-90 shadow-professional text-base font-semibold",
+        hero2: "bg-gradient-medical-reverse text-white hover:opacity-90 shadow-professional text-base font-semibold",
       },
       size: {
         default: "h-10 px-4 py-2",
