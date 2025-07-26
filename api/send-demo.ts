@@ -43,14 +43,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .replace(/{{mensaje}}/g, message);
 
     await resend.emails.send({
-      from: 'CWS Centro Médico <no-reply@festinalente.dev>',
+      from: 'C.M.S Laboral <no-reply@festinalente.dev>',
       to: 'festinalentedev2021@gmail.com',
       subject: `Nueva solicitud de demostración`,
       html: populatedNotification
     });
 
     await resend.emails.send({
-      from: 'CWS Centro Médico <no-reply@festinalente.dev>',
+      from: 'C.M.S Laboral <no-reply@festinalente.dev>',
       to: email,
       subject: 'Gracias por tu solicitud',
       html: populatedConfirmation

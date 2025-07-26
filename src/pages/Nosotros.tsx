@@ -28,7 +28,7 @@ const Nosotros = () => {
       <section className="py-16 px-4 max-w-4xl mx-auto">
         <h2 className="text-2xl font-semibold mb-4">Nuestra Misión</h2>
         <p>
-          En CWS Centro Médico, nos dedicamos a mejorar la calidad de vida laboral mediante servicios médicos ocupacionales adaptados a cada empresa. Buscamos reducir costos para RRHH, prevenir enfermedades, y fomentar entornos saludables.
+          En C.M.S Laboral, nos dedicamos a mejorar la calidad de vida laboral mediante servicios médicos ocupacionales adaptados a cada empresa. Buscamos reducir costos para RRHH, prevenir enfermedades, y fomentar entornos saludables.
         </p>
       </section>
 
