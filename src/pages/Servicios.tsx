@@ -12,7 +12,7 @@ const Servicios = () => {
     <Layout>
         <div>
         {/* Hero */}
-        <section className="relative overflow-hidden -mt-14">
+      <section className="relative overflow-hidden h-[250px] md:h-[450px]">
           <div className="absolute inset-0">
             <img 
               src={heroImage} 
@@ -21,7 +21,7 @@ const Servicios = () => {
             />
             <div className="absolute inset-0 bg-primary/80" />
           </div>
-          <div className="relative container mx-auto px-4 py-32 text-center text-white">
+          <div className="relative container mx-auto px-4 py-32 text-center text-white animate-fade-in">
             <h1 className="text-5xl lg:text-6xl font-bold">Nuestros Servicios</h1>
             <p className="text-lg max-w-2xl mx-auto">
           Soluciones integrales en salud ocupacional para empresas de todos los tamaños.

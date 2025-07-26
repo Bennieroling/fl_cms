@@ -1,5 +1,5 @@
 import { CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function ContactInfo() {
   return (
@@ -14,15 +14,12 @@ export default function ContactInfo() {
           <span>info@cms.com.ar</span>
         </div>
         <div className="flex items-center gap-3">
-          <MapPin className="w-5 h-5 text-primary" />
+          <MapPin className="w-7 h-7 text-primary" />
       
           <span>Av. Corrientes 531, C1043AAF,Buenos Aires, Argentina</span>
         </div>
         <div className="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <polyline points="12 6 12 12 16 14" />
-          </svg>
+          <Clock className="w-5 h-5 text-primary" />
           <span>Lunes a viernes 08:00 - 18:00</span>
         </div>
       </div>

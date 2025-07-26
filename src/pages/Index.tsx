@@ -32,7 +32,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden h-[250px] md:h-[450px]">
         <div className="absolute inset-0">
           <img 
             src={heroImage} 
@@ -42,14 +42,30 @@ const Index = () => {
           <div className="absolute inset-0 bg-primary/80" />
         </div>
         
-        <div className="relative container mx-auto px-4 py-32">
-          <div className="max-w-4xl mx-auto text-center text-white animate-fade-in">
+        <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
+          <img
+            src="/logo_white.png"
+            alt="Logo"
+            className="absolute right-2 top-[30] transform -translate-y-[5%] w-60 h-60 md:w-80 md:h-80 "
+            // style={{ animationFillMode: "forwards", animationDelay: "0.1s" }}
+          />
+          <img
+            src="/cms_logo_png.png"
+            alt="Logo"
+            className="absolute left-2 top-[30] transform -translate-y-[5%] w-60 h-60 md:w-80 md:h-80 "
+            // style={{ animationFillMode: "forwards", animationDelay: "0.1s" }}
+          />
+            <div className="max-w-4xl mx-auto text-center text-white animate-fade-in">
             <Badge variant="secondary" className="mb-6 text-primary">
               Con la confianza de más de 100 empresas
             </Badge>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+              
+           <div className="relative w-full flex flex-col items-center">
+              <h1 className="text-4xl lg:text-6xl font-bold text-white text-center">
               Gestión Profesional de la Salud Laboral
-            </h1>
+              </h1>
+
+            </div>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Medicina laboral personalizada para tu empresa: atención en tu oficina o en nuestro centro, exámenes, control de ausentismo, asesoría legal y prevención. Cumplí con la normativa, cuidá a tu equipo y mejorá tus resultados.
             </p>
@@ -60,12 +76,12 @@ const Index = () => {
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
                </Link> 
-                <Link to="agendar-consulta#top">
+                {/* <Link to="agendar-consulta#top">
                 <Button variant="hero2" size="lg" className="group">
                   Agendar Consulta
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-               </Link> 
+               </Link>  */}
               {/* <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
                 Ver Planes
               </Button> */}
@@ -176,26 +192,33 @@ const Index = () => {
               </div>
             </div>
             <Card className="shadow-professional">
-              <CardContent className="p-8">
-                <div className="text-center mb-6">
-                  <Building2 className="w-16 h-16 text-primary mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold mb-2">Listo para Empresas</h4>
-                  <p className="text-muted-foreground">
-                    Diseñado para PyMEs y grandes empresas
-                  </p>
-                </div>
-                <Link to="/agendar-consulta#top">
-                  <Button variant="medical" className="w-full" size="lg">
-                    Agendar Consulta
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+  <CardContent className="p-8">
+    <div className="text-center mb-6">
+      <Building2 className="w-16 h-16 text-primary mx-auto mb-4" />
+      <h4 className="text-xl font-semibold mb-2">Listo para Empresas</h4>
+      <p className="text-muted-foreground">
+        Diseñado para PyMEs y grandes empresas
+      </p>
+    </div>
+    <div className="flex justify-center gap-x-4">
+      <Link to="/agendar-consulta#top">
+        <Button variant="medical" size="lg">
+          Solicitar turno
+        </Button>
+      </Link>
+      <Link to="/agendar-consulta#top">
+        <Button variant="medical" size="lg">
+          Contacto por WhatsApp
+        </Button>
+      </Link>
+    </div>
+  </CardContent>
+</Card>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -240,7 +263,7 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section className="py-20 bg-secondary/50">
