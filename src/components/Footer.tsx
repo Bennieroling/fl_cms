@@ -10,8 +10,8 @@ const Footer = () => (
     <Linkedin className="w-4 h-4" /> LinkedIn
   </a>
   <a href="https://wa.me/541112345678" className="flex items-center gap-1 hover:underline">
-  <Phone className="w-4 h-4" />
-  <IconWhatsapp className="w-4 h-4" /> +54 11 1234-5678
+  {/* <Phone className="w-4 h-4" />
+  <IconWhatsapp className="w-4 h-4" /> +54 11 1234-5678 */}
 </a>
   <a href="mailto:info@medclinic.com" className="flex items-center gap-1 hover:underline">
     <Mail className="w-4 h-4" /> info@cms.com.ar

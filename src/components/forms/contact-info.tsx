@@ -6,8 +6,8 @@ export default function ContactInfo() {
     <CardContent className="px-8 pt-8 pb-4">
       <div className="space-y-4">
         <div className="flex items-center gap-3">
-          <Phone className="w-5 h-5 text-primary" />
-          <span>(55 11) 1234-5678</span>
+          {/* <Phone className="w-5 h-5 text-primary" />
+          <span>(55 11) 1234-5678</span> */}
         </div>
         <div className="flex items-center gap-3">
           <Mail className="w-5 h-5 text-primary" />
