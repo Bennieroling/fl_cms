@@ -49,7 +49,13 @@ const ContactForm = () => {
       });
 
       const result = await response.json();
-      setStatus(response.ok ? "success" : "error");
+      if (response.ok) {
+        setStatus("success");
+        console.log("✅ Email sent successfully:", result);
+      } else {
+        setStatus("error");
+        console.error("❌ API error:", result);
+      }
     } catch (err) {
       console.error("❌ Network error:", err);
       setStatus("error");
@@ -77,6 +83,7 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name="telefono"
+            rules={{ required: "Este campo es obligatorio" }}
             render={({ field }) => (
               <FormItem className="flex-1">
                 <FormLabel>Télefono</FormLabel>
