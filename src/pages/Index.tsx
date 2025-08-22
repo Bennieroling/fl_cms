@@ -49,12 +49,12 @@ const Index = () => {
             className="absolute right-2 top-[30] transform -translate-y-[5%] w-60 h-60 md:w-80 md:h-80 "
             // style={{ animationFillMode: "forwards", animationDelay: "0.1s" }}
           />
-          <img
+          {/* <img
             src="/cms_logo_png.png"
             alt="Logo"
             className="absolute left-2 top-[30] transform -translate-y-[5%] w-60 h-60 md:w-80 md:h-80 "
             // style={{ animationFillMode: "forwards", animationDelay: "0.1s" }}
-          />
+          /> */}
             <div className="max-w-4xl mx-auto text-center text-white animate-fade-in">
             <Badge variant="secondary" className="mb-6 text-primary">
               Con la confianza de más de 100 empresas

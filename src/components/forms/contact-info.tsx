@@ -16,7 +16,7 @@ export default function ContactInfo() {
         <div className="flex items-center gap-3">
           <MapPin className="w-7 h-7 text-primary" />
       
-          <span>Av. Corrientes 531, C1043AAF,Buenos Aires, Argentina</span>
+          <span>Av. Corrientes 531 piso 8, C1043AAF,Buenos Aires, Argentina</span>
         </div>
         <div className="flex items-center gap-3">
           <Clock className="w-5 h-5 text-primary" />
@@ -27,7 +27,7 @@ export default function ContactInfo() {
        <div className="w-full flex justify-center">
   <iframe
     title="C.M.S Laboral Location"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0413945276646!2d-58.37680302311869!3d-34.60311475746838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacd015272c7%3A0xa131d5feebec7fa3!2sAv.%20Corrientes%20531%2C%20C1043AAF%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1sen!2ses!4v1753547710600!5m2!1sen!2ses"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d821.0103047284468!2d-58.37487183032963!3d-34.60311919830966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb95aa15b3d7%3A0x49c220bb4f4d3e57!2sCMS%20LABORAL%20S.R.L.!5e0!3m2!1sen!2ses!4v1755884940142!5m2!1sen!2ses"
     width="100%"
     height="300"
     style={{ border: 0 }}
