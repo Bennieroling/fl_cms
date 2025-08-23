@@ -13,23 +13,24 @@ import Nosotros from "./pages/Nosotros";
 import Servicios from "./pages/Servicios";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
-import Preocupacionales from "./pages/Preocupacionales";
-import Ausentismo from "./pages/Ausentismo";
-import Anuales from "./pages/Anuales";
 import Cookies from "./pages/Cookies";
 import CookieBanner from "./components/CookieBanner";
 
-function ScrollToHash() {
-  const { hash } = useLocation();
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     if (hash) {
+      // If there's a hash, scroll to that element
       const el = document.querySelector(hash);
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
       }
+    } else {
+      // No hash, scroll to top
+      window.scrollTo(0, 0);
     }
-  }, [hash]);
+  }, [pathname, hash]);
 
   return null;
 }
@@ -43,13 +44,10 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <ScrollToHash />
+          <ScrollToTop />
           <Routes>
             <Route path="/agendar-consulta" element={<AgendarConsulta />} />
             <Route path="/search" element={<Search />} />
-            <Route path="/servicios/preocupacionales" element={<Preocupacionales />} />
-            <Route path="/servicios/ausentismo" element={<Ausentismo />} />
-            <Route path="/servicios/anuales" element={<Anuales />} />
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/" element={<Index />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

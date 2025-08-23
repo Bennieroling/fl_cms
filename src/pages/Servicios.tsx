@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
@@ -5,10 +6,114 @@ import { Stethoscope, UserCheck, FileText, CalendarCheck, Brain, ShieldCheck } f
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import FAQAccordion from '@/components/FAQAccordion';
+import ServiceModal from '@/components/ServiceModal';
 
 
 
 const Servicios = () => {
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const serviceDetails = {
+    preocupacionales: {
+      title: "Exámenes Preocupacionales",
+      content: "Evaluaciones médicas obligatorias para el ingreso laboral, realizadas según la Resolución SRT 37/2010 y adaptadas a los riesgos específicos de cada puesto de trabajo.",
+      details: [
+        "Historia clínica ocupacional completa",
+        "Examen físico general y específico",
+        "Laboratorio completo (hemograma, glucemia, colesterol, etc.)",
+        "Radiografía de tórax",
+        "Audiometría y examen otorrinolaringológico",
+        "Examen oftalmológico con agudeza visual",
+        "Espirometría (función pulmonar)",
+        "Electrocardiograma (si corresponde por edad o riesgo)",
+        "Evaluación psicológica (para puestos específicos)"
+      ],
+      process: [
+        "Coordinación de la cita según disponibilidad",
+        "Realización de la historia clínica ocupacional",
+        "Examen físico completo por médico especialista",
+        "Estudios complementarios según protocolo del puesto",
+        "Evaluación de resultados y emisión de dictamen",
+        "Entrega de certificado de aptitud médica"
+      ],
+      deliverables: [
+        "Certificado de aptitud médica",
+        "Informe médico detallado",
+        "Resultados de todos los estudios realizados",
+        "Recomendaciones específicas si corresponde"
+      ]
+    },
+    anuales: {
+      title: "Exámenes Periódicos Anuales",
+      content: "Evaluaciones médicas anuales obligatorias para trabajadores expuestos a riesgos laborales específicos, con seguimiento evolutivo de la salud ocupacional.",
+      details: [
+        "Seguimiento evolutivo de la salud del trabajador",
+        "Mismos estudios que el preocupacional adaptados",
+        "Evaluación de exposición a riesgos laborales",
+        "Control de patologías preexistentes",
+        "Actualización de historia clínica ocupacional",
+        "Detección precoz de enfermedades profesionales",
+        "Recomendaciones preventivas personalizadas"
+      ],
+      process: [
+        "Planificación anual según vencimientos",
+        "Notificación a la empresa y trabajadores",
+        "Realización de estudios actualizados",
+        "Comparación con exámenes previos",
+        "Evaluación evolutiva de la salud",
+        "Emisión de certificado de aptitud actualizado"
+      ],
+      deliverables: [
+        "Certificado de aptitud médica renovado",
+        "Informe evolutivo comparativo",
+        "Recomendaciones de seguimiento",
+        "Alertas médicas si corresponde"
+      ]
+    },
+    ausentismo: {
+      title: "Control de Ausentismo",
+      content: "Sistema integral de control médico para verificar las ausencias laborales por enfermedad, con tres modalidades de atención según las necesidades específicas.",
+      details: [
+        "Control básico domiciliario con médico a domicilio",
+        "Control virtual mediante videollamada segura",
+        "Control en consultorio con citación al empleado",
+        "Verificación del estado de salud real",
+        "Constatación de la veracidad de la dolencia",
+        "Evaluación de la incapacidad temporal",
+        "Seguimiento médico durante la licencia"
+      ],
+      process: [
+        "Recepción de solicitud de control por parte de RRHH",
+        "Coordinación de la modalidad de control más adecuada",
+        "Realización del control médico correspondiente",
+        "Verificación del estado del empleado",
+        "Emisión de parte médico con diagnóstico",
+        "Entrega de indicadores y reportes a RRHH"
+      ],
+      deliverables: [
+        "Parte médico oficial",
+        "Indicadores de seguimiento para RRHH",
+        "Recomendaciones de tratamiento si corresponde",
+        "Estimación de tiempo de recuperación"
+      ]
+    }
+  };
+
+  const openModal = (serviceKey: string) => {
+    setSelectedService(serviceKey);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedService(null);
+    setIsModalOpen(false);
+  };
+
+  const getServiceData = () => {
+    if (!selectedService) return null;
+    return serviceDetails[selectedService as keyof typeof serviceDetails];
+  };
 
   return (
     <>
@@ -66,35 +171,35 @@ const Servicios = () => {
             {[
                 {
                   title: "Exámenes preocupacionales",
-                  desc: "Evaluaciones médicas para ingreso laboral según normativa vigente.",
+                  desc: "Historia clínica ocupacional, examen físico completo y estudios complementarios según Resolución SRT 37/2010 con certificado de aptitud.",
                   icon: UserCheck,
-                  href: "/servicios/preocupacionales"
+                  modalKey: "preocupacionales"
                 },
                 {
                   title: "Exámenes de egreso",
-                  desc: "Certificaciones de salud al finalizar una relación laboral.",
+                  desc: "Certificaciones médicas completas al finalizar la relación laboral con documentación digital firmada.",
                   icon: FileText
                 },
                 {
                   title: "Exámenes periódicos",
-                  desc: "Seguimiento anual obligatorio para empleados expuestos a riesgos.",
+                  desc: "Evaluaciones médicas anuales obligatorias para trabajadores expuestos a riesgos con seguimiento evolutivo.",
                   icon: CalendarCheck,
-                  href: "/servicios/anuales"
+                  modalKey: "anuales"
                 },
                 {
                   title: "Control de ausentismo",
-                  desc: "Médico a domicilio y gestión de reportes para RRHH.",
+                  desc: "Tres modalidades: domiciliario, virtual y en consultorio. Verificación médica con parte e indicadores para RRHH.",
                   icon: Stethoscope,
-                  href: "/servicios/ausentismo"
+                  modalKey: "ausentismo"
                 },
                 {
                   title: "Evaluaciones psicotécnicas",
-                  desc: "Informes psicológicos para puestos críticos o de alta rotación.",
+                  desc: "Informes psicológicos especializados para puestos críticos, con evaluación integral según normativa laboral.",
                   icon: Brain
                 },
                 {
                   title: "Asesoramiento en medicina laboral",
-                  desc: "Consultoría a medida sobre prevención y salud en el trabajo.",
+                  desc: "Consultoría especializada en prevención de riesgos laborales y operativos médicos in-company con equipos móviles.",
                   icon: ShieldCheck
                 },
             ].map((item, i) => (
@@ -104,22 +209,18 @@ const Servicios = () => {
                       <item.icon className="w-6 h-6 text-white" aria-hidden="true" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">
-                      {item.href ? (
-                        <Link to={item.href} className="hover:text-primary transition-colors">
-                          {item.title}
-                        </Link>
-                      ) : (
-                        item.title
-                      )}
+                      {item.title}
                     </h3>
                     <p className="text-muted-foreground">{item.desc}</p>
-                    {item.href && (
+                    {item.modalKey && (
                       <div className="mt-4">
-                        <Link to={item.href}>
-                          <Button variant="outline" size="sm">
-                            Ver más
-                          </Button>
-                        </Link>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => openModal(item.modalKey!)}
+                        >
+                          Ver más
+                        </Button>
                       </div>
                     )}
                   </CardContent>
@@ -141,6 +242,19 @@ const Servicios = () => {
             </Link>
         </section>
         </div>
+
+        {/* Service Modal */}
+        {selectedService && (
+          <ServiceModal
+            isOpen={isModalOpen}
+            onClose={closeModal}
+            title={getServiceData()?.title || ""}
+            content={getServiceData()?.content || ""}
+            details={getServiceData()?.details || []}
+            process={getServiceData()?.process || []}
+            deliverables={getServiceData()?.deliverables || []}
+          />
+        )}
       </Layout>
     </>
   );
