@@ -12,7 +12,7 @@ const defaultSEO = {
   title: 'C.M.S Laboral | Gestión profesional de la salud laboral',
   description: 'Servicios de medicina laboral en Buenos Aires: exámenes preocupacionales, control de ausentismo, exámenes anuales y consultoría.',
   path: '/',
-  image: '/og-image.jpg',
+  image: '/og-image.png',
   type: 'website' as const
 };
 

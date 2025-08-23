@@ -33,7 +33,7 @@ async function generateOGImage() {
     }
     
     // Convert SVG to PNG using Sharp
-    const outputPath = join(projectRoot, 'public', 'og-image.jpg');
+    const outputPath = join(projectRoot, 'public', 'og-image.png');
     
     await sharp(Buffer.from(svgContent))
       .resize(1200, 630)
