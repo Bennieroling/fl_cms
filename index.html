@@ -63,6 +63,11 @@
     <!-- DNS prefetch for better performance -->
     <link rel="dns-prefetch" href="//www.google-analytics.com" />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/assets/medical-hero.jpg" as="image" type="image/jpeg" />
+    <link rel="modulepreload" href="/src/main.tsx" />
+    <link rel="modulepreload" href="/src/App.tsx" />
   </head>
   <body>
     <div id="root"></div>

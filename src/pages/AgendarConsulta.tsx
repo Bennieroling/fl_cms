@@ -71,6 +71,9 @@ const AgendarConsulta: React.FC = () => {
               src={heroImage} 
               alt="Servicios de salud ocupacional" 
               className="w-full h-full object-cover"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-primary/80" />
           </div>

@@ -149,6 +149,9 @@ const Index = () => {
             src={heroImage} 
             alt="Medical clinic facility" 
             className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-primary/80" />
         </div>
@@ -159,6 +162,8 @@ const Index = () => {
             src="/logo_white.png"
             alt="Logo"
             className="hidden lg:block absolute right-4 top-1/4 transform -translate-y-1/4 w-48 h-48 xl:w-60 xl:h-60 2xl:w-80 2xl:h-80 opacity-0 animate-fade-in-slide"
+            loading="lazy"
+            decoding="async"
           />
           
             <div className="max-w-4xl mx-auto text-center text-white animate-fade-in">
@@ -176,7 +181,11 @@ const Index = () => {
               Medicina laboral personalizada para tu empresa: atención en tu oficina o en nuestro centro, exámenes, control de ausentismo, asesoría legal y prevención. Cumplí con la normativa, cuidá a tu equipo y mejorá tus resultados.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4">
-              <Link to="agendar-consulta#contacto" className="w-full sm:w-auto">
+              <Link 
+                to="agendar-consulta#contacto" 
+                className="w-full sm:w-auto"
+                aria-label="Ir a la página de contacto para agendar una consulta"
+              >
                 <Button variant="hero" size="lg" className="group w-full sm:w-auto min-h-[48px] text-base font-semibold">
                   Contáctanos
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -219,9 +228,9 @@ const Index = () => {
       <section className="py-16 sm:py-20 bg-secondary/50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
               Solución Integral en Salud Ocupacional
-            </h3>
+            </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
               Todo lo necesario para cumplir con la salud laboral y el bienestar de tus empleados
             </p>
@@ -265,7 +274,7 @@ const Index = () => {
                   <div className="w-12 h-12 bg-gradient-medical rounded-lg flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="text-base sm:text-lg font-semibold mb-2">{feature.title}</h4>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2">{feature.title}</h3>
                   <p className="text-sm sm:text-base text-muted-foreground">{feature.description}</p>
                 </CardContent>
               </Card>
@@ -279,9 +288,9 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-3xl font-bold mb-6">
+              <h2 className="text-3xl font-bold mb-6">
                 ¿Por qué eligen C.M.S LABORAL?
-              </h3>
+              </h2>
               <div className="space-y-6">
                 {[
                   "Reduzca la carga administrativa en un 70%",
@@ -306,14 +315,22 @@ const Index = () => {
         Diseñado para PyMEs y grandes empresas
       </p>
     </div>
-    <div className="flex justify-center gap-x-4">
-      <Link to="/agendar-consulta#top">
-        <Button variant="medical" size="lg">
+    <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+      <Link 
+        to="/agendar-consulta#top"
+        aria-label="Solicitar turno médico ocupacional"
+        className="w-full sm:w-auto"
+      >
+        <Button variant="medical" size="lg" className="w-full sm:w-auto min-h-[48px]">
           Solicitar turno
         </Button>
       </Link>
-      <Link to="/agendar-consulta#top">
-        <Button variant="medical" size="lg">
+      <Link 
+        to="/agendar-consulta#top"
+        aria-label="Contactar por WhatsApp para consultas"
+        className="w-full sm:w-auto"
+      >
+        <Button variant="medical" size="lg" className="w-full sm:w-auto min-h-[48px]">
           Contacto por WhatsApp
         </Button>
       </Link>
