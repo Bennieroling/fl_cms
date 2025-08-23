@@ -6,7 +6,7 @@
 
   <!-- Homepage - Highest priority -->
   <url>
-    <loc>https://www.cms.com.ar/</loc>
+    <loc>https://cms.com.ar/</loc>
     <lastmod>2024-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,15 +14,37 @@
 
   <!-- Services page - High priority for business -->
   <url>
-    <loc>https://www.cms.com.ar/servicios</loc>
+    <loc>https://cms.com.ar/servicios</loc>
     <lastmod>2024-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- Service detail pages - High priority for targeted keywords -->
+  <url>
+    <loc>https://cms.com.ar/servicios/preocupacionales</loc>
+    <lastmod>2024-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://cms.com.ar/servicios/ausentismo</loc>
+    <lastmod>2024-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://cms.com.ar/servicios/anuales</loc>
+    <lastmod>2024-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Contact/Schedule page - High priority for conversions -->
   <url>
-    <loc>https://www.cms.com.ar/agendar-consulta</loc>
+    <loc>https://cms.com.ar/agendar-consulta</loc>
     <lastmod>2024-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -30,15 +52,23 @@
 
   <!-- About us page - Medium priority -->
   <url>
-    <loc>https://www.cms.com.ar/nosotros</loc>
+    <loc>https://cms.com.ar/nosotros</loc>
     <lastmod>2024-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- Search page - Lower priority -->
+  <url>
+    <loc>https://cms.com.ar/search</loc>
+    <lastmod>2024-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
   <!-- Login page - Lower priority, not for SEO -->
   <url>
-    <loc>https://www.cms.com.ar/login</loc>
+    <loc>https://cms.com.ar/login</loc>
     <lastmod>2024-08-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
