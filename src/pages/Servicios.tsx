@@ -5,10 +5,35 @@ import { Stethoscope, UserCheck, FileText, CalendarCheck, Brain, ShieldCheck } f
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import FAQAccordion from '@/components/FAQAccordion';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 
 
 const Servicios = () => {
+  const breadcrumbItems = [
+    { name: 'Inicio', href: '/' },
+    { name: 'Servicios' }
+  ];
+
+  const breadcrumbJsonLD = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://cms.com.ar/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Servicios",
+        "item": "https://cms.com.ar/servicios"
+      }
+    ]
+  };
+
   return (
     <>
       <Helmet>
@@ -89,6 +114,7 @@ const Servicios = () => {
       </Helmet>
       <Layout>
         <div>
+        <Breadcrumbs items={breadcrumbItems} jsonLD={breadcrumbJsonLD} />
         {/* Hero */}
       <section className="relative overflow-hidden h-[250px] md:h-[450px]">
           <div className="absolute inset-0">
@@ -137,7 +163,8 @@ const Servicios = () => {
                 {
                   title: "Exámenes preocupacionales",
                   desc: "Evaluaciones médicas para ingreso laboral según normativa vigente.",
-                  icon: UserCheck
+                  icon: UserCheck,
+                  href: "/servicios/preocupacionales"
                 },
                 {
                   title: "Exámenes de egreso",
@@ -147,12 +174,14 @@ const Servicios = () => {
                 {
                   title: "Exámenes periódicos",
                   desc: "Seguimiento anual obligatorio para empleados expuestos a riesgos.",
-                  icon: CalendarCheck
+                  icon: CalendarCheck,
+                  href: "/servicios/anuales"
                 },
                 {
                   title: "Control de ausentismo",
                   desc: "Médico a domicilio y gestión de reportes para RRHH.",
-                  icon: Stethoscope
+                  icon: Stethoscope,
+                  href: "/servicios/ausentismo"
                 },
                 {
                   title: "Evaluaciones psicotécnicas",
@@ -170,8 +199,25 @@ const Servicios = () => {
                     <div className="w-12 h-12 bg-gradient-medical rounded-lg flex items-center justify-center mx-auto mb-4">
                       <item.icon className="w-6 h-6 text-white" aria-hidden="true" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                    <h3 className="text-lg font-semibold mb-2">
+                      {item.href ? (
+                        <Link to={item.href} className="hover:text-primary transition-colors">
+                          {item.title}
+                        </Link>
+                      ) : (
+                        item.title
+                      )}
+                    </h3>
                     <p className="text-muted-foreground">{item.desc}</p>
+                    {item.href && (
+                      <div className="mt-4">
+                        <Link to={item.href}>
+                          <Button variant="outline" size="sm">
+                            Ver más
+                          </Button>
+                        </Link>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
             ))}

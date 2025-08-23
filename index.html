@@ -117,10 +117,25 @@
         "@type": "Country",
         "name": "Argentina"
       },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+54-11-4000-0000",
+          "contactType": "customer service",
+          "availableLanguage": ["es", "en"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+54-11-4000-0000",
+          "contactType": "WhatsApp",
+          "availableLanguage": ["es", "en"]
+        }
+      ],
       "sameAs": [
         "https://www.linkedin.com/company/cmslaboral",
         "https://maps.google.com/place/C.M.S+Laboral",
-        "https://www.facebook.com/cmslaboral"
+        "https://www.facebook.com/cmslaboral",
+        "https://wa.me/5411400000000"
       ],
       "medicalSpecialty": [
         "Occupational Medicine",
@@ -128,6 +143,24 @@
         "Industrial Medicine"
       ],
       "serviceType": "Occupational Health Services"
+    }
+    </script>
+
+    <!-- WebSite with SearchAction Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "C.M.S Laboral",
+      "url": "https://cms.com.ar",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://cms.com.ar/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
 
