@@ -75,11 +75,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    // Check if Resend API key is available
+    // Check if required environment variables are available
     if (!process.env.RESEND_API_KEY) {
       console.error('❌ RESEND_API_KEY environment variable is not set');
       return res.status(500).json({ error: 'Email service not configured' });
     }
+
+    // Email configuration from environment variables with fallbacks
+    const fromEmail = process.env.FROM_EMAIL || 'CMS Laboral <hello@cms.com.ar>';
+    const alertToEmail = process.env.ALERT_TO_EMAIL || 'hello@festinalente.dev';
 
     const raw = req.body || {};
     const fullName = String(raw.fullName ?? '').trim();
@@ -103,32 +107,45 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const confirmationTemplate = getTemplate('confirmation');
     console.log('✅ Templates loaded successfully');
 
+    // Get current date in Spanish format
+    const currentDate = new Date().toLocaleDateString('es-AR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
     const populatedNotification = notificationTemplate
       .replace(/{{nombre-contacto}}/g, esc(fullName))
       .replace(/{{telefono}}/g, esc(phone || '-'))
       .replace(/{{nombre-empresa}}/g, esc(companyName || '-'))
       .replace(/{{contact-email}}/g, esc(email))
-      .replace(/{{mensaje}}/g, esc(message).replace(/\n/g, '<br/>'));
+      .replace(/{{mensaje}}/g, esc(message).replace(/\n/g, '<br/>'))
+      .replace(/{{date}}/g, esc(currentDate));
 
     const populatedConfirmation = confirmationTemplate
       .replace(/{{nombre-contacto}}/g, esc(fullName))
       .replace(/{{telefono}}/g, esc(phone || '-'))
       .replace(/{{nombre-empresa}}/g, esc(companyName || '-'))
       .replace(/{{contact-email}}/g, esc(email))
-      .replace(/{{mensaje}}/g, esc(message).replace(/\n/g, '<br/>'));
+      .replace(/{{mensaje}}/g, esc(message).replace(/\n/g, '<br/>'))
+      .replace(/{{date}}/g, esc(currentDate));
 
     console.log('📨 Sending emails...');
+    console.log('📧 Email config:', { fromEmail, alertToEmail });
+    
     // Send in parallel; note replyTo + response shape
     const [internalRes, userRes] = await Promise.all([
       resend.emails.send({
-        from: 'CMS Laboral <hello@cms.com.ar>', // Use verified domain
-        to: 'hello@festinalente.dev',
+        from: fromEmail,
+        to: alertToEmail,
         replyTo: email, // ✅ camelCase
         subject: 'Nueva solicitud de demostración',
         html: populatedNotification,
       }),
       resend.emails.send({
-        from: 'CMS Laboral <hello@cms.com.ar>', // Use verified domain
+        from: fromEmail,
         to: email,
         subject: 'Gracias por tu solicitud',
         html: populatedConfirmation,
