@@ -64,13 +64,60 @@
     <link rel="dns-prefetch" href="//www.google-analytics.com" />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/src/assets/medical-hero.jpg" as="image" type="image/jpeg" />
+    <!-- Preload critical hero images for LCP optimization -->
+    <link rel="preload" href="/hero-640.webp" as="image" type="image/webp" media="(max-width: 767px)" />
+    <link rel="preload" href="/hero-1280.webp" as="image" type="image/webp" media="(min-width: 768px)" />
+    <link rel="preload" href="/hero-640.jpg" as="image" type="image/jpeg" media="(max-width: 767px)" />
+    <link rel="preload" href="/hero-1280.jpg" as="image" type="image/jpeg" media="(min-width: 768px)" />
+    
+    <!-- Preload critical scripts -->
     <link rel="modulepreload" href="/src/main.tsx" />
     <link rel="modulepreload" href="/src/App.tsx" />
+    
+    <!-- Font optimization with display swap -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    </style>
+    
+    <!-- MedicalOrganization Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "name": "C.M.S Laboral",
+      "url": "https://www.cms.com.ar/",
+      "logo": "https://www.cms.com.ar/logo.png",
+      "description": "Organización médica especializada en medicina ocupacional y salud laboral. Ofrecemos exámenes médicos laborales, gestión de ausentismo, y servicios integrales de salud ocupacional para empresas en Argentina.",
+      "telephone": "+54-11-4000-0000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Corrientes 1000",
+        "addressLocality": "Buenos Aires",
+        "addressRegion": "CABA",
+        "postalCode": "C1043",
+        "addressCountry": "AR"
+      },
+      "openingHours": [
+        "Mo-Fr 08:00-18:00"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Argentina"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/cmslaboral"
+      ],
+      "medicalSpecialty": [
+        "Occupational Medicine",
+        "Preventive Medicine",
+        "Industrial Medicine"
+      ],
+      "serviceType": "Occupational Health Services"
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx" defer></script>
   </body>
 </html>
