@@ -114,6 +114,113 @@
       "serviceType": "Occupational Health Services"
     }
     </script>
+
+    <!-- FAQPage Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué incluye un examen preocupacional?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Incluye historia clínica, examen físico y estudios según el puesto (visión, audición, laboratorio si corresponde), con apto médico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda el proceso desde la cita hasta el informe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Generalmente entregamos el informe en 24–48 horas según estudios requeridos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo gestionan el control de ausentismo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Coordinamos la visita médica, verificamos el motivo de ausencia y reportamos a RR.HH. con parte médico e indicadores."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Realizan operativos en planta (in-company)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, disponemos de equipos móviles para operativos en planta y también atención en consultorio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Entregan informes y certificados en formato digital?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, enviamos informes digitales firmados y resguardados en nuestro sistema."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Service Schema with ItemList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Servicios de Medicina Ocupacional",
+      "description": "Lista de servicios especializados en medicina ocupacional y salud laboral",
+      "itemListElement": [
+        {
+          "@type": "Service",
+          "position": 1,
+          "name": "Exámenes preocupacionales",
+          "serviceType": "Medicina laboral",
+          "description": "Evaluaciones médicas para ingreso laboral según normativa vigente",
+          "areaServed": {
+            "@type": "Place",
+            "name": "Buenos Aires, Argentina"
+          },
+          "provider": {
+            "@type": "MedicalOrganization",
+            "name": "C.M.S Laboral"
+          }
+        },
+        {
+          "@type": "Service",
+          "position": 2,
+          "name": "Control de ausentismo",
+          "serviceType": "Medicina laboral",
+          "description": "Coordinación de visitas médicas y gestión de reportes para RR.HH.",
+          "areaServed": {
+            "@type": "Place",
+            "name": "Buenos Aires, Argentina"
+          },
+          "provider": {
+            "@type": "MedicalOrganization",
+            "name": "C.M.S Laboral"
+          }
+        },
+        {
+          "@type": "Service",
+          "position": 3,
+          "name": "Exámenes periódicos/anuales",
+          "serviceType": "Medicina laboral",
+          "description": "Seguimiento anual obligatorio para empleados expuestos a riesgos",
+          "areaServed": {
+            "@type": "Place",
+            "name": "Buenos Aires, Argentina"
+          },
+          "provider": {
+            "@type": "MedicalOrganization",
+            "name": "C.M.S Laboral"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

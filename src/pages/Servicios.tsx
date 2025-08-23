@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Stethoscope, UserCheck, FileText, CalendarCheck, Brain, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import FAQAccordion from '@/components/FAQAccordion';
 
 
 
@@ -176,6 +177,9 @@ const Servicios = () => {
             ))}
             </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQAccordion />
 
         {/* CTA */}
         <section className="text-center py-16 bg-muted">
