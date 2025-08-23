@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
-import { Stethoscope, UserCheck, FileText, CalendarCheck, Brain, ShieldCheck } from "lucide-react";
+import { Stethoscope, UserCheck, FileText, CalendarCheck, Brain, ShieldCheck, UserX, FileCheck, BriefcaseMedical, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import FAQAccordion from '@/components/FAQAccordion';
@@ -178,7 +178,7 @@ const Servicios = () => {
                 {
                   title: "Exámenes de egreso",
                   desc: "Certificaciones médicas completas al finalizar la relación laboral con documentación digital firmada.",
-                  icon: FileText
+                  icon: FileCheck
                 },
                 {
                   title: "Exámenes periódicos",
@@ -189,7 +189,7 @@ const Servicios = () => {
                 {
                   title: "Control de ausentismo",
                   desc: "Tres modalidades: domiciliario, virtual y en consultorio. Verificación médica con parte e indicadores para RRHH.",
-                  icon: Stethoscope,
+                  icon: UserX,
                   modalKey: "ausentismo"
                 },
                 {
@@ -200,7 +200,7 @@ const Servicios = () => {
                 {
                   title: "Asesoramiento en medicina laboral",
                   desc: "Consultoría especializada en prevención de riesgos laborales y operativos médicos in-company con equipos móviles.",
-                  icon: ShieldCheck
+                  icon: Users
                 },
             ].map((item, i) => (
                 <Card key={i} className="shadow-professional hover:shadow-lg transition-shadow">

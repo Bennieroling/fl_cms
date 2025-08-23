@@ -9,17 +9,53 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // Cache templates at module scope (loaded once per cold start)
 let notificationTpl: string | null = null;
 let confirmationTpl: string | null = null;
+
+// Fallback templates if files don't exist
+const fallbackNotification = `
+<html>
+<body>
+<h2>Nueva solicitud de demostración</h2>
+<p><strong>Contacto:</strong> {{nombre-contacto}}</p>
+<p><strong>Email:</strong> {{contact-email}}</p>
+<p><strong>Teléfono:</strong> {{telefono}}</p>
+<p><strong>Empresa:</strong> {{nombre-empresa}}</p>
+<p><strong>Mensaje:</strong></p>
+<p>{{mensaje}}</p>
+</body>
+</html>
+`;
+
+const fallbackConfirmation = `
+<html>
+<body>
+<h2>Gracias por tu consulta, {{nombre-contacto}}</h2>
+<p>Hemos recibido tu solicitud y nos pondremos en contacto contigo pronto.</p>
+<p><strong>Datos recibidos:</strong></p>
+<p>Empresa: {{nombre-empresa}}</p>
+<p>Teléfono: {{telefono}}</p>
+<p>Email: {{contact-email}}</p>
+<p>Mensaje: {{mensaje}}</p>
+<p>Saludos,<br>CMS Laboral</p>
+</body>
+</html>
+`;
+
 function getTemplate(name: string) {
-  if (name === 'notification') {
-    if (!notificationTpl) {
-      notificationTpl = fs.readFileSync(path.join(process.cwd(), 'templates', 'notification_email.html'), 'utf-8');
+  try {
+    if (name === 'notification') {
+      if (!notificationTpl) {
+        notificationTpl = fs.readFileSync(path.join(process.cwd(), 'templates', 'notification_email.html'), 'utf-8');
+      }
+      return notificationTpl;
     }
-    return notificationTpl;
+    if (!confirmationTpl) {
+      confirmationTpl = fs.readFileSync(path.join(process.cwd(), 'templates', 'confirmation_email.html'), 'utf-8');
+    }
+    return confirmationTpl;
+  } catch (error) {
+    console.warn(`⚠️ Template loading failed, using fallback for ${name}:`, error);
+    return name === 'notification' ? fallbackNotification : fallbackConfirmation;
   }
-  if (!confirmationTpl) {
-    confirmationTpl = fs.readFileSync(path.join(process.cwd(), 'templates', 'confirmation_email.html'), 'utf-8');
-  }
-  return confirmationTpl;
 }
 
 // Basic HTML escape
@@ -39,12 +75,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    // Check if Resend API key is available
+    if (!process.env.RESEND_API_KEY) {
+      console.error('❌ RESEND_API_KEY environment variable is not set');
+      return res.status(500).json({ error: 'Email service not configured' });
+    }
+
     const raw = req.body || {};
     const fullName = String(raw.fullName ?? '').trim();
     const phone = String(raw.phone ?? '').trim();
     const companyName = String(raw.companyName ?? '').trim();
     const email = String(raw.email ?? '').trim();
     const message = String(raw.message ?? '').trim();
+
+    console.log('📧 Processing email request:', { fullName, email, companyName });
 
     if (!fullName || !email || !message) {
       return res.status(400).json({ error: 'Missing required fields' });
@@ -54,8 +98,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(200).json({ success: true });
     }
 
+    console.log('📄 Loading email templates...');
     const notificationTemplate = getTemplate('notification');
     const confirmationTemplate = getTemplate('confirmation');
+    console.log('✅ Templates loaded successfully');
 
     const populatedNotification = notificationTemplate
       .replace(/{{nombre-contacto}}/g, esc(fullName))
@@ -71,17 +117,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .replace(/{{contact-email}}/g, esc(email))
       .replace(/{{mensaje}}/g, esc(message).replace(/\n/g, '<br/>'));
 
+    console.log('📨 Sending emails...');
     // Send in parallel; note replyTo + response shape
     const [internalRes, userRes] = await Promise.all([
       resend.emails.send({
-        from: 'CMS Laboral <no-reply@cms.com.ar>',
-        to: 'info@festinalente.dev',
+        from: 'CMS Laboral <onboarding@resend.dev>', // Use Resend's test domain
+        to: 'hello@festinalente.dev',
         replyTo: email, // ✅ camelCase
         subject: 'Nueva solicitud de demostración',
         html: populatedNotification,
       }),
       resend.emails.send({
-        from: 'CMS Laboral <info@cms.com.ar>',
+        from: 'CMS Laboral <onboarding@resend.dev>', // Use Resend's test domain
         to: email,
         subject: 'Gracias por tu solicitud',
         html: populatedConfirmation,
@@ -89,10 +136,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     ]);
 
     // Narrow errors and collect IDs safely
-    if (internalRes.error) throw internalRes.error;
-    if (userRes.error) throw userRes.error;
+    if (internalRes.error) {
+      console.error('❌ Internal email error:', internalRes.error);
+      throw internalRes.error;
+    }
+    if (userRes.error) {
+      console.error('❌ User email error:', userRes.error);
+      throw userRes.error;
+    }
 
     const ids = [internalRes.data?.id, userRes.data?.id].filter(Boolean);
+    console.log('✅ Emails sent successfully. IDs:', ids);
 
     return res.status(200).json({ success: true, ids });
   } catch (err) {

@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import ContactInfo from "@/components/forms/contact-info";
 import { 
-  Stethoscope, 
-  Shield, 
+  UserCheck, 
   Users, 
-  Calendar, 
-  FileText, 
-  Activity,
+  CalendarCheck, 
+  UserX, 
   CheckCircle,
-  Building2
+  Building2,
+  Brain,
+  FileCheck
 } from "lucide-react";
 import DemoRequestForm from "@/components/forms/Form";
 
@@ -22,8 +22,8 @@ const Index = () => {
   return (
     <>
       <SEO 
-        title="CMS Laboral | Gestión profesional de la salud laboral"
-        description="Servicios de medicina laboral en Buenos Aires: exámenes preocupacionales, control de ausentismo, exámenes anuales y consultoría."
+        title="CMS Laboral | Medicina Ocupacional en Buenos Aires"
+        description="30+ años de experiencia en medicina ocupacional en Buenos Aires: exámenes preocupacionales, control de ausentismo, exámenes periódicos y consultoría médica laboral."
         path="/"
         image="/og-image.png"
       />
@@ -35,10 +35,10 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
             {[
-              { number: "100+", label: "Empresas Atendidas" },
-              { number: "50k+", label: "Empleados Gestionados" },
-              { number: "99.9%", label: "Disponibilidad Garantizada" },
-              { number: "24/7", label: "Soporte Disponible" }
+              { number: "30+", label: "Años de Experiencia" },
+              { number: "500+", label: "Empresas Atendidas" },
+              { number: "100%", label: "Cumplimiento Normativo" },
+              { number: "48hs", label: "Entrega de Informes" }
             ].map((stat, index) => (
               <div key={index} className="space-y-2 py-4">
                 <div className="text-2xl sm:text-3xl font-bold text-primary">{stat.number}</div>
@@ -54,55 +54,57 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-              Solución Integral en Salud Ocupacional
+              Servicios de Medicina Ocupacional
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
-              Todo lo necesario para cumplir con la salud laboral y el bienestar de tus empleados
+              Más de 30 años de experiencia cumpliendo con la normativa laboral Argentina y cuidando la salud de los trabajadores
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
+                icon: UserCheck,
+                title: "Exámenes Preocupacionales",
+                description: "Evaluaciones médicas completas según Resolución SRT 37/2010 para ingreso laboral con certificado de aptitud."
+              },
+              {
+                icon: CalendarCheck,
+                title: "Exámenes Periódicos",
+                description: "Controles médicos anuales obligatorios con seguimiento evolutivo para trabajadores expuestos a riesgos."
+              },
+              {
+                icon: UserX,
+                title: "Control de Ausentismo",
+                description: "Tres modalidades de control: domiciliario, virtual y en consultorio con reportes para RRHH."
+              },
+              {
+                icon: Brain,
+                title: "Evaluaciones Psicotécnicas",
+                description: "Informes psicológicos especializados para puestos críticos según normativa laboral vigente."
+              },
+              {
                 icon: Users,
-                title: "Gestión de Empleados",
-                description: "Registre y gestione fichas médicas, certificaciones y cumplimiento normativo."
+                title: "Asesoramiento Médico",
+                description: "Consultoría en prevención de riesgos laborales con operativos in-company y equipos móviles."
               },
               {
-                icon: Calendar,
-                title: "Gestión de Turnos",
-                description: "Solicite exámenes médicos, vacunación y chequeos fácilmente."
-              },
-              {
-                icon: Activity,
-                title: "Seguimiento de Salud",
-                description: "Monitoree el estado de salud, aptitudes médicas y condiciones laborales."
-              },
-              {
-                icon: FileText,
-                title: "Reporte de Enfermedades",
-                description: "Informe incidentes o enfermedades laborales con documentación detallada."
-              },
-              {
-                icon: Shield,
-                title: "Seguimiento de Cumplimiento",
-                description: "Asegure el cumplimiento con regulaciones y normativas de salud ocupacional."
-              },
-              {
-                icon: Stethoscope,
-                title: "Informes Médicos",
-                description: "Genere reportes médicos y analíticas para su empresa."
+                icon: FileCheck,
+                title: "Exámenes de Egreso",
+                description: "Certificaciones médicas digitales al finalizar la relación laboral con documentación firmada."
               }
             ].map((feature, index) => (
-              <Card key={index} className="shadow-professional hover:shadow-lg transition-shadow">
-                <CardContent className="p-4 sm:p-6 text-center">
-                  <div className="w-12 h-12 bg-gradient-medical rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-6 h-6 text-white" aria-hidden="true" />
-                  </div>
-                  <h3 className="text-base sm:text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-sm sm:text-base text-muted-foreground">{feature.description}</p>
-                </CardContent>
-              </Card>
+              <Link key={index} to="/servicios" className="group">
+                <Card className="shadow-professional hover:shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-200">
+                  <CardContent className="p-4 sm:p-6 text-center">
+                    <div className="w-12 h-12 bg-gradient-medical rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <feature.icon className="w-6 h-6 text-white" aria-hidden="true" />
+                    </div>
+                    <h3 className="text-base sm:text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -118,11 +120,11 @@ const Index = () => {
               </h2>
               <div className="space-y-6">
                 {[
-                  "Reduzca la carga administrativa en un 70%",
-                  "Garantice un cumplimiento del 100% con normativas de salud",
-                  "Optimice los turnos y reduzca ausencias",
-                  "Genere reportes detallados para auditorías y gestión",
-                  "Gestión segura de datos, cumpliendo estándares internacionales"
+                  "Más de 30 años de experiencia en medicina ocupacional",
+                  "Cumplimiento total con Resolución SRT 37/2010 y normativas vigentes",
+                  "Equipos móviles para operativos in-company en sus instalaciones",
+                  "Informes médicos digitales entregados en 24-48 horas",
+                  "Tres modalidades de control de ausentismo adaptables a sus necesidades"
                 ].map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
@@ -220,7 +222,7 @@ const Index = () => {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold mb-4">¿Listos para comenzar?</h2>
               <p className="text-lg text-muted-foreground">
-                Contáctenos hoy para agendar una demostración y conocer cómo MedClinic Portal puede transformar su gestión en salud ocupacional
+                Contáctenos hoy para agendar una consulta y conocer cómo CMS Laboral puede ayudar a su empresa con la salud ocupacional
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-12">

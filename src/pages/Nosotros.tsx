@@ -106,20 +106,7 @@ const Nosotros = () => {
           </div>
         </section>
 
-        <section className="bg-secondary py-16 px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-semibold mb-6 text-center">Qué hacemos</h2>
-            <ul className="list-disc list-inside space-y-2 max-w-xl mx-auto">
-              <li>Exámenes preocupacionales</li>
-              <li>Controles periódicos</li>
-              <li>Evaluaciones médicas específicas</li>
-              <li>Asesoramiento en salud ocupacional</li>
-              <li>Programas de bienestar laboral</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="py-16 sm:py-20">
+        <section className="bg-secondary py-16 sm:py-20">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-3xl font-semibold mb-6 text-center">Cómo trabajamos</h2>
@@ -154,6 +141,19 @@ const Nosotros = () => {
                 </Card>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="py-16 px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-semibold mb-6 text-center">Qué hacemos</h2>
+            <ul className="list-disc list-inside space-y-2 max-w-xl mx-auto">
+              <li>Exámenes preocupacionales</li>
+              <li>Controles periódicos</li>
+              <li>Evaluaciones médicas específicas</li>
+              <li>Asesoramiento en salud ocupacional</li>
+              <li>Programas de bienestar laboral</li>
+            </ul>
           </div>
         </section>
 

@@ -8,7 +8,7 @@ const Footer = () => (
         &copy; 2024–{new Date().getFullYear()} CMS Laboral. Gestión profesional de la salud laboral.
         </p>
       <div className="mt-4 flex flex-wrap justify-center items-center gap-4 text-sm">
-  <a 
+  {/* <a 
     href="https://www.linkedin.com/company/medclinic" 
     target="_blank" 
     rel="noopener noreferrer" 
@@ -16,7 +16,7 @@ const Footer = () => (
     aria-label="Seguir en LinkedIn"
   >
     <Linkedin className="w-4 h-4" aria-hidden="true" /> LinkedIn
-  </a>
+  </a> */}
   <a 
     href="mailto:info@cms.com.ar" 
     className="flex items-center gap-1 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded px-2 py-1"
