@@ -36,7 +36,7 @@ const ContactForm = () => {
   const onSubmit = async (values: FormValues) => {
     try {
       setStatus("sending");
-      const response = await fetch("/api/send-demo", {
+      const response = await fetch("/api/send-demo-simple", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -55,6 +55,10 @@ const ContactForm = () => {
       } else {
         setStatus("error");
         console.error("❌ API error:", result);
+        // Show the debug info to help identify the issue
+        if (result.debug) {
+          console.error("Debug info:", result.debug);
+        }
       }
     } catch (err) {
       console.error("❌ Network error:", err);
