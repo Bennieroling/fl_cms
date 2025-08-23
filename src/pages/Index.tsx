@@ -200,7 +200,7 @@ const Index = () => {
               <Card key={index} className="shadow-professional hover:shadow-lg transition-shadow">
                 <CardContent className="p-4 sm:p-6 text-center">
                   <div className="w-12 h-12 bg-gradient-medical rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-6 h-6 text-white" />
+                    <feature.icon className="w-6 h-6 text-white" aria-hidden="true" />
                   </div>
                   <h3 className="text-base sm:text-lg font-semibold mb-2">{feature.title}</h3>
                   <p className="text-sm sm:text-base text-muted-foreground">{feature.description}</p>
@@ -228,7 +228,7 @@ const Index = () => {
                   "Gestión segura de datos, cumpliendo estándares internacionales"
                 ].map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
                     <span className="text-lg text-foreground">{benefit}</span>
                   </div>
                 ))}
@@ -237,8 +237,8 @@ const Index = () => {
             <Card className="shadow-professional">
   <CardContent className="p-8">
     <div className="text-center mb-6">
-      <Building2 className="w-16 h-16 text-primary mx-auto mb-4" />
-      <h4 className="text-xl font-semibold mb-2">Listo para Empresas</h4>
+      <Building2 className="w-16 h-16 text-primary mx-auto mb-4" aria-hidden="true" />
+      <h3 className="text-xl font-semibold mb-2">Listo para Empresas</h3>
       <p className="text-muted-foreground">
         Diseñado para PyMEs y grandes empresas
       </p>
@@ -321,7 +321,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h3 className="text-3xl font-bold mb-4">¿Listos para comenzar?</h3>
+              <h2 className="text-3xl font-bold mb-4">¿Listos para comenzar?</h2>
               <p className="text-lg text-muted-foreground">
                 Contáctenos hoy para agendar una demostración y conocer cómo MedClinic Portal puede transformar su gestión en salud ocupacional
               </p>
@@ -329,13 +329,13 @@ const Index = () => {
             <div className="grid md:grid-cols-2 gap-12">
               <Card className="shadow-professional">
                 <CardContent className="p-8">
-                  <h4 className="text-xl font-semibold mb-6">Contáctenos</h4>
+                  <h3 className="text-xl font-semibold mb-6">Contáctenos</h3>
                   <ContactInfo />
                 </CardContent>
               </Card>
               <Card className="shadow-professional">
                 <CardContent className="p-8">
-                  <h4 className="text-xl font-semibold mb-6">Contáctanos</h4>
+                  <h3 className="text-xl font-semibold mb-6">Contáctanos</h3>
                   <DemoRequestForm />
                 </CardContent>
               </Card>

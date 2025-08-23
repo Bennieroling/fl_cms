@@ -167,9 +167,9 @@ const Servicios = () => {
                 <Card key={i} className="shadow-professional hover:shadow-lg transition-shadow">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-gradient-medical rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <item.icon className="w-6 h-6 text-white" />
+                      <item.icon className="w-6 h-6 text-white" aria-hidden="true" />
                     </div>
-                    <h4 className="text-lg font-semibold mb-2">{item.title}</h4>
+                    <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                     <p className="text-muted-foreground">{item.desc}</p>
                   </CardContent>
                 </Card>

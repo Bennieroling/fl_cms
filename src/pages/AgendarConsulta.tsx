@@ -66,34 +66,15 @@ const AgendarConsulta: React.FC = () => {
       {/* Hero */}
         <section className="relative overflow-hidden h-[300px] sm:h-[350px] md:h-[450px]">
           <div className="absolute inset-0">
-            <picture>
-              <source 
-                media="(min-width: 768px)" 
-                srcSet="/hero-1280.webp 1280w" 
-                sizes="100vw"
-                type="image/webp" 
-              />
-              <source 
-                media="(min-width: 768px)" 
-                srcSet="/hero-1280.jpg 1280w" 
-                sizes="100vw"
-                type="image/jpeg" 
-              />
-              <source 
-                srcSet="/hero-640.webp 640w" 
-                sizes="100vw"
-                type="image/webp" 
-              />
-              <img 
-                src="/hero-640.jpg" 
-                alt="Servicios de salud ocupacional" 
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-                width="1280"
-                height="450"
-              />
-            </picture>
+            <img 
+              src="/hero-640.jpg" 
+              alt="Servicios de salud ocupacional" 
+              className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              width="1280"
+              height="450"
+            />
             <div className="absolute inset-0 bg-primary/80" />
           </div>
           <div className="relative container mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32 text-center text-white animate-fade-in">
@@ -132,7 +113,7 @@ const AgendarConsulta: React.FC = () => {
         <div className="mt-12">
           <Card className="shadow-professional">
             <CardContent className="p-8">
-              <h4 className="text-xl font-semibold mb-6">Información de contacto</h4>
+              <h3 className="text-xl font-semibold mb-6">Información de contacto</h3>
               <ContactInfo />
             </CardContent>
           </Card>

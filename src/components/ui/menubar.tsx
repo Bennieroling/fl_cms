@@ -244,20 +244,38 @@ const MenubarMain = () => {
   return (
     <div className="relative">
       {/* Desktop Menu */}
-      <div className="hidden sm:flex items-center gap-4">
-        <Link to="/nosotros" className="text-sm font-medium">Nosotros</Link>
-        <Link to="/servicios" className="px-4 py-2 hover:bg-gray-100">Servicios</Link>
-        <Link to="/agendar-consulta#hero" className="text-sm font-medium">Contacto</Link>
-         <Link to="/login" className="px-4 py-2 hover:bg-gray-100">
-            <Button variant="medical">Acceso Clientes</Button>
-          </Link>
+      <div className="hidden sm:flex items-center gap-1">
+        <Link 
+          to="/nosotros" 
+          className="text-sm font-medium px-3 py-2 rounded hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary min-h-[44px] flex items-center"
+        >
+          Nosotros
+        </Link>
+        <Link 
+          to="/servicios" 
+          className="text-sm font-medium px-3 py-2 rounded hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary min-h-[44px] flex items-center"
+        >
+          Servicios
+        </Link>
+        <Link 
+          to="/agendar-consulta#hero" 
+          className="text-sm font-medium px-3 py-2 rounded hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary min-h-[44px] flex items-center"
+        >
+          Contacto
+        </Link>
+        <Link 
+          to="/login" 
+          className="ml-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded"
+        >
+          <Button variant="medical" className="min-h-[44px]">Acceso Clientes</Button>
+        </Link>
       </div>
 
       {/* Mobile Menu Toggle */}
       <button
-        className="sm:hidden p-3 rounded-md hover:bg-gray-100 transition-colors"
+        className="sm:hidden p-3 rounded-md hover:bg-gray-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary min-h-[44px] min-w-[44px] flex items-center justify-center"
         onClick={() => setIsOpen(prev => !prev)}
-        aria-label="Toggle menu"
+        aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
         aria-expanded={isOpen}
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -269,21 +287,21 @@ const MenubarMain = () => {
           <div className="flex flex-col py-2">
             <Link 
               to="/nosotros" 
-              className="px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors min-h-[48px] flex items-center"
+              className="px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors min-h-[48px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary focus-visible:ring-inset"
               onClick={() => setIsOpen(false)}
             >
               Nosotros
             </Link>
             <Link 
               to="/servicios" 
-              className="px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors min-h-[48px] flex items-center"
+              className="px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors min-h-[48px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary focus-visible:ring-inset"
               onClick={() => setIsOpen(false)}
             >
               Servicios
             </Link>
             <Link 
               to="/agendar-consulta#hero" 
-              className="px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors min-h-[48px] flex items-center"
+              className="px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors min-h-[48px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary focus-visible:ring-inset"
               onClick={() => setIsOpen(false)}
             >
               Contacto
