@@ -9,6 +9,9 @@ export type ConsentState = {
 const STORAGE_KEY = 'cms-consent';
 const GA_MEASUREMENT_ID = 'G-9EQQX1N1Z0';
 
+// Module-level guard to prevent multiple GA loads
+let gaLoaded = false;
+
 // Declare gtag function types
 declare global {
   interface Window {
@@ -84,8 +87,15 @@ export function loadGA(): Promise<void> {
       return;
     }
 
+    // Module-level guard - only load once
+    if (gaLoaded) {
+      resolve();
+      return;
+    }
+
     // Check if already loaded
     if (document.querySelector(`script[src*="${GA_MEASUREMENT_ID}"]`)) {
+      gaLoaded = true;
       resolve();
       return;
     }
@@ -112,10 +122,14 @@ export function loadGA(): Promise<void> {
       window.gtag('js', new Date());
       window.gtag('config', GA_MEASUREMENT_ID, {
         anonymize_ip: true,
+        cookie_domain: 'cms.com.ar',
+        cookie_update: true,
+        cookie_flags: 'SameSite=Lax;Secure',
         allow_google_signals: false,
         allow_ad_personalization_signals: false
       });
       
+      gaLoaded = true;
       console.log('✅ Google Analytics loaded with consent');
       resolve();
     };
