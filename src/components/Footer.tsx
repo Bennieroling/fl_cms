@@ -5,7 +5,7 @@ const Footer = () => (
   <footer className="bg-card border-t py-8">
     <div className="container mx-auto px-4 text-center text-muted-foreground">
       <p>
-        &copy; 2024–{new Date().getFullYear()} C.M.S Laboral. Gestión profesional de la salud laboral.
+        &copy; 2024–{new Date().getFullYear()} CMS Laboral. Gestión profesional de la salud laboral.
         </p>
       <div className="mt-4 flex flex-wrap justify-center items-center gap-4 text-sm">
   <a 

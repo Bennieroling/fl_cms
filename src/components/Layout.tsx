@@ -21,8 +21,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded p-2 -m-2" 
             aria-label="Ir a la página principal"
           >
-            <img src="logo_csm_png.png" alt="C.M.S Laboral" className="w-8 h-8 object-contain" loading="lazy" decoding="async"/>
-            <span className="text-lg sm:text-xl font-bold text-foreground">C.M.S LABORAL</span>
+            <img src="logo_csm_png.png" alt="CMS Laboral" className="w-8 h-8 object-contain" loading="lazy" decoding="async"/>
+            <span className="text-lg sm:text-xl font-bold text-foreground">CMS Laboral</span>
           </Link>
           <nav aria-label="Navegación principal">
             <MenubarMain />

@@ -14,13 +14,13 @@ const Nosotros = () => {
   return (
     <>
       <Helmet>
-        <title>Nosotros - Quiénes Somos | C.M.S Laboral Argentina</title>
-        <meta name="description" content="Conoce C.M.S Laboral: más de 30 años de experiencia en medicina ocupacional. Equipo multidisciplinario brindando soluciones integrales a empresas en Argentina desde Av. Corrientes 531." />
+        <title>Nosotros - Quiénes Somos | CMS Laboral Argentina</title>
+        <meta name="description" content="Conoce CMS Laboral: más de 30 años de experiencia en medicina ocupacional. Equipo multidisciplinario brindando soluciones integrales a empresas en Argentina desde Av. Corrientes 531." />
         <meta name="keywords" content="nosotros cms laboral, empresa medicina ocupacional, experiencia medicina del trabajo, equipo médico ocupacional, trayectoria salud laboral, profesionales medicina laboral Argentina" />
         <link rel="canonical" href="https://cms.com.ar/nosotros" />
         
         {/* Open Graph tags */}
-        <meta property="og:title" content="Nosotros - Quiénes Somos | C.M.S Laboral" />
+        <meta property="og:title" content="Nosotros - Quiénes Somos | CMS Laboral" />
         <meta property="og:description" content="Más de 30 años de experiencia en medicina ocupacional. Equipo multidisciplinario especializado en medicina del trabajo desde Buenos Aires." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cms.com.ar/nosotros" />
@@ -28,7 +28,7 @@ const Nosotros = () => {
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Nosotros - Quiénes Somos | C.M.S Laboral" />
+        <meta name="twitter:title" content="Nosotros - Quiénes Somos | CMS Laboral" />
         <meta name="twitter:description" content="30+ años de experiencia en medicina ocupacional. Conoce nuestro equipo y misión." />
         <meta name="twitter:image" content="https://cms.com.ar/og-image.png" />
         
@@ -37,12 +37,12 @@ const Nosotros = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "AboutPage",
-            "name": "Nosotros - C.M.S Laboral",
-            "description": "Información sobre C.M.S Laboral, empresa especializada en medicina ocupacional",
+            "name": "Nosotros - CMS Laboral",
+            "description": "Información sobre CMS Laboral, empresa especializada en medicina ocupacional",
             "url": "https://cms.com.ar/nosotros",
             "mainEntity": {
               "@type": "Organization",
-              "name": "C.M.S Laboral",
+              "name": "CMS Laboral",
               "foundingDate": "1994",
               "description": "Empresa especializada en medicina ocupacional con más de 30 años de experiencia",
               "numberOfEmployees": "50-100",

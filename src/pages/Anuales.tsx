@@ -74,7 +74,7 @@ const Anuales = () => {
   return (
     <>
       <SEO 
-        title="Exámenes periódicos/anuales | C.M.S Laboral"
+        title="Exámenes periódicos/anuales | CMS Laboral"
         description="Seguimiento obligatorio de salud para empleados expuestos a riesgos laborales. Exámenes médicos periódicos y anuales según normativa vigente para garantizar el cumplimiento y la salud ocupacional."
         path="/servicios/anuales"
       />

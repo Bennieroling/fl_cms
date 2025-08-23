@@ -56,8 +56,8 @@ const Search = () => {
   return (
     <>
       <Helmet>
-        <title>Buscar - C.M.S Laboral</title>
-        <meta name="description" content="Buscar servicios de medicina ocupacional en C.M.S Laboral" />
+        <title>Buscar - CMS Laboral</title>
+        <meta name="description" content="Buscar servicios de medicina ocupacional en CMS Laboral" />
         <meta name="robots" content="noindex" />
       </Helmet>
       <Layout>

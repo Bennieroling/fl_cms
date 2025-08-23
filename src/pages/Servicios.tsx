@@ -13,7 +13,7 @@ const Servicios = () => {
   return (
     <>
       <SEO 
-        title="Servicios de medicina laboral | C.M.S Laboral"
+        title="Servicios de medicina laboral | CMS Laboral"
         description="Exámenes preocupacionales, control de ausentismo, exámenes periódicos, evaluaciones psicotécnicas y asesoramiento en medicina laboral para empresas en Buenos Aires."
         path="/servicios"
       />

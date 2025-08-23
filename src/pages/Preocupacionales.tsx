@@ -75,7 +75,7 @@ const Preocupacionales = () => {
   return (
     <>
       <SEO 
-        title="Exámenes preocupacionales para empresas | C.M.S Laboral"
+        title="Exámenes preocupacionales para empresas | CMS Laboral"
         description="Evaluaciones médicas integrales para ingreso laboral según normativa vigente. Historia clínica, examen físico, estudios específicos y entrega de informe en 24-48 horas."
         path="/servicios/preocupacionales"
       />

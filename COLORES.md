@@ -1,4 +1,4 @@
-# 🎨 Guía de Colores - C.M.S Laboral
+# 🎨 Guía de Colores - CMS Laboral
 
 Esta guía muestra todos los colores utilizados en nuestro sitio web, con sus códigos y dónde los encontrarás.
 

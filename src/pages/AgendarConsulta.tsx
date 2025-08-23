@@ -19,22 +19,22 @@ const AgendarConsulta: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Contacto - Agendar Consulta | C.M.S Laboral</title>
-        <meta name="description" content="Contacte a C.M.S Laboral para medicina ocupacional. Agende su consulta personalizada y solicite información sobre nuestros servicios de salud laboral en Argentina." />
+        <title>Contacto - Agendar Consulta | CMS Laboral</title>
+        <meta name="description" content="Contacte a CMS Laboral para medicina ocupacional. Agende su consulta personalizada y solicite información sobre nuestros servicios de salud laboral en Argentina." />
         <meta name="keywords" content="contacto, agendar consulta, medicina ocupacional, salud laboral, exámenes médicos, Argentina" />
         <link rel="canonical" href="https://cms.com.ar/agendar-consulta" />
         
         {/* Open Graph tags */}
-        <meta property="og:title" content="Contacto - Agendar Consulta | C.M.S Laboral" />
-        <meta property="og:description" content="Contacte a C.M.S Laboral para medicina ocupacional. Agende su consulta personalizada y solicite información sobre nuestros servicios de salud laboral." />
+        <meta property="og:title" content="Contacto - Agendar Consulta | CMS Laboral" />
+        <meta property="og:description" content="Contacte a CMS Laboral para medicina ocupacional. Agende su consulta personalizada y solicite información sobre nuestros servicios de salud laboral." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cms.com.ar/agendar-consulta" />
         <meta property="og:image" content="https://cms.com.ar/og-image.png" />
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contacto - Agendar Consulta | C.M.S Laboral" />
-        <meta name="twitter:description" content="Contacte a C.M.S Laboral para medicina ocupacional. Agende su consulta personalizada." />
+        <meta name="twitter:title" content="Contacto - Agendar Consulta | CMS Laboral" />
+        <meta name="twitter:description" content="Contacte a CMS Laboral para medicina ocupacional. Agende su consulta personalizada." />
         <meta name="twitter:image" content="https://cms.com.ar/og-image.png" />
         
         {/* Structured data for ContactPage */}
@@ -42,12 +42,12 @@ const AgendarConsulta: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "name": "Contacto - C.M.S Laboral",
+            "name": "Contacto - CMS Laboral",
             "description": "Página de contacto para agendar consultas de medicina ocupacional",
             "url": "https://cms.com.ar/agendar-consulta",
             "mainEntity": {
               "@type": "Organization",
-              "name": "C.M.S Laboral",
+              "name": "CMS Laboral",
               "url": "https://cms.com.ar",
               "logo": "https://cms.com.ar/logo.png",
               "contactPoint": {

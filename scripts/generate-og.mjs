@@ -12,7 +12,7 @@ const __dirname = dirname(__filename);
 const projectRoot = join(__dirname, '..');
 
 // Get environment variables for customization
-const customTitle = process.env.OG_TITLE || 'C.M.S Laboral';
+const customTitle = process.env.OG_TITLE || 'CMS Laboral';
 const customStrapline = process.env.OG_STRAPLINE || 'Gestión profesional de la salud laboral';
 
 async function generateOGImage() {
@@ -24,8 +24,8 @@ async function generateOGImage() {
     let svgContent = readFileSync(svgPath, 'utf-8');
     
     // Replace placeholders if custom values are provided
-    if (customTitle !== 'C.M.S Laboral') {
-      svgContent = svgContent.replace('C.M.S Laboral', customTitle);
+    if (customTitle !== 'CMS Laboral') {
+      svgContent = svgContent.replace('CMS Laboral', customTitle);
     }
     
     if (customStrapline !== 'Gestión profesional de la salud laboral') {

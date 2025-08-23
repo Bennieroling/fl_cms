@@ -15,7 +15,7 @@ const NotFound = () => {
   return (
     <>
       <Helmet>
-        <title>Página no encontrada - Error 404 | C.M.S Laboral</title>
+        <title>Página no encontrada - Error 404 | CMS Laboral</title>
         <meta name="description" content="La página que busca no existe. Vuelva al inicio para acceder a nuestros servicios de medicina ocupacional." />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>

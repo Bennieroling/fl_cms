@@ -9,7 +9,7 @@ interface SEOProps {
 }
 
 const defaultSEO = {
-  title: 'C.M.S Laboral | Gestión profesional de la salud laboral',
+  title: 'CMS Laboral | Gestión profesional de la salud laboral',
   description: 'Servicios de medicina laboral en Buenos Aires: exámenes preocupacionales, control de ausentismo, exámenes anuales y consultoría.',
   path: '/',
   image: '/og-image.png',
@@ -42,7 +42,7 @@ const SEO = ({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={title} />
-      <meta property="og:site_name" content="C.M.S Laboral" />
+      <meta property="og:site_name" content="CMS Laboral" />
       <meta property="og:locale" content="es_AR" />
       
       {/* Twitter Card meta tags */}

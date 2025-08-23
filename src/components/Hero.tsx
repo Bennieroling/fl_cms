@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
         {/* Logo - Hidden on mobile, positioned responsively on larger screens */}
         <img
           src="/logo_white.png"
-          alt="C.M.S Laboral Logo"
+          alt="CMS Laboral Logo"
           className="hidden lg:block absolute left-4 top-1/4 transform -translate-y-1/4 w-48 h-48 xl:w-60 xl:h-60 2xl:w-80 2xl:h-80 opacity-0 animate-fade-in-slide"
           loading="lazy"
           decoding="async"

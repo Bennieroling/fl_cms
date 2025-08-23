@@ -8,8 +8,8 @@ const Login: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Iniciar Sesión | C.M.S Laboral - Portal Empresas</title>
-        <meta name="description" content="Acceso al portal empresarial de C.M.S Laboral. Inicie sesión para gestionar los servicios de medicina ocupacional de su empresa." />
+        <title>Iniciar Sesión | CMS Laboral - Portal Empresas</title>
+        <meta name="description" content="Acceso al portal empresarial de CMS Laboral. Inicie sesión para gestionar los servicios de medicina ocupacional de su empresa." />
         <meta name="keywords" content="login cms laboral, acceso portal empresas, iniciar sesion medicina ocupacional, portal clientes cms" />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://www.cms.com.ar/login" />

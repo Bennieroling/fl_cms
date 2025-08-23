@@ -105,7 +105,7 @@ const Cookies = () => {
   return (
     <>
       <SEO
-        title="Política de Cookies | C.M.S Laboral"
+        title="Política de Cookies | CMS Laboral"
         description="Información sobre el uso de cookies en nuestro sitio web. Conoce qué cookies utilizamos, por qué las necesitamos y cómo puedes gestionarlas."
         path="/cookies"
         type="website"

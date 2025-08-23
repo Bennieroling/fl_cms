@@ -22,7 +22,7 @@ const Index = () => {
   return (
     <>
       <SEO 
-        title="C.M.S Laboral | Gestión profesional de la salud laboral"
+        title="CMS Laboral | Gestión profesional de la salud laboral"
         description="Servicios de medicina laboral en Buenos Aires: exámenes preocupacionales, control de ausentismo, exámenes anuales y consultoría."
         path="/"
         image="/og-image.png"
@@ -114,7 +114,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-6">
-                ¿Por qué eligen C.M.S LABORAL?
+                ¿Por qué eligen CMS Laboral?
               </h2>
               <div className="space-y-6">
                 {[
@@ -176,7 +176,7 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                quote: "C.M.S LABORAL transformó nuestra gestión en salud laboral. Reducimos el papeleo un 80% y mejoramos el cumplimiento.",
+                quote: "CMS Laboral transformó nuestra gestión en salud laboral. Reducimos el papeleo un 80% y mejoramos el cumplimiento.",
                 author: "Sarah Johnson",
                 title: "HR Director, TechCorp",
                 rating: 5

@@ -74,7 +74,7 @@ const Ausentismo = () => {
   return (
     <>
       <SEO 
-        title="Control de ausentismo laboral | C.M.S Laboral"
+        title="Control de ausentismo laboral | CMS Laboral"
         description="Gestión médica profesional de ausencias laborales. Coordinamos visitas médicas, verificamos motivos de ausencia y generamos reportes detallados para RR.HH. con indicadores claros."
         path="/servicios/ausentismo"
       />
