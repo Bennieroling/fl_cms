@@ -76,7 +76,7 @@ const Preocupacionales = () => {
     <>
       <SEO 
         title="Exámenes preocupacionales para empresas | C.M.S Laboral"
-        description="Aptos médicos y estudios específicos según el puesto. Entrega de informe en 24–48 h."
+        description="Evaluaciones médicas integrales para ingreso laboral según normativa vigente. Historia clínica, examen físico, estudios específicos y entrega de informe en 24-48 horas."
         path="/servicios/preocupacionales"
       />
       <Layout>
@@ -87,7 +87,7 @@ const Preocupacionales = () => {
           <section className="relative overflow-hidden h-[300px] bg-gradient-to-r from-primary to-primary/80">
             <div className="relative container mx-auto px-4 py-20 text-center text-white">
               <UserCheck className="w-16 h-16 mx-auto mb-4" />
-              <h1 className="text-4xl lg:text-5xl font-bold mb-4">Exámenes Preocupacionales</h1>
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6">Exámenes Preocupacionales</h1>
               <p className="text-lg max-w-2xl mx-auto">
                 Evaluaciones médicas integrales para ingreso laboral según normativa vigente
               </p>

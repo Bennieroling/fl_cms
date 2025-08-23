@@ -75,7 +75,7 @@ const Ausentismo = () => {
     <>
       <SEO 
         title="Control de ausentismo laboral | C.M.S Laboral"
-        description="Visitas médicas, verificación y reportes a RR.HH. con indicadores claros."
+        description="Gestión médica profesional de ausencias laborales. Coordinamos visitas médicas, verificamos motivos de ausencia y generamos reportes detallados para RR.HH. con indicadores claros."
         path="/servicios/ausentismo"
       />
       <Layout>
@@ -86,7 +86,7 @@ const Ausentismo = () => {
           <section className="relative overflow-hidden h-[300px] bg-gradient-to-r from-blue-600 to-blue-800">
             <div className="relative container mx-auto px-4 py-20 text-center text-white">
               <Stethoscope className="w-16 h-16 mx-auto mb-4" />
-              <h1 className="text-4xl lg:text-5xl font-bold mb-4">Control de Ausentismo</h1>
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6">Control de Ausentismo</h1>
               <p className="text-lg max-w-2xl mx-auto">
                 Gestión médica profesional de ausencias laborales con reportes detallados para RR.HH.
               </p>

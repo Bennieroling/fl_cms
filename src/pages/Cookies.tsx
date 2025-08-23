@@ -2,8 +2,106 @@ import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Cookie, Settings, BarChart3 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
+
+type SettingsProps = { open: boolean; onClose: () => void };
+const InlineCookieSettings = ({ open, onClose }: SettingsProps) => {
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
+
+  // Initialize from localStorage if present
+  useEffect(() => {
+    if (!open) return;
+    try {
+      const raw = localStorage.getItem("cms-consent");
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (typeof parsed?.analytics === "boolean") {
+          setAnalyticsEnabled(parsed.analytics);
+        }
+      }
+    } catch (err) { if (import.meta.env.DEV) console.warn("[cookies] Failed to read consent from localStorage", err); }
+  }, [open]);
+
+  const applyConsent = (allow: boolean) => {
+    // persist locally
+    try {
+      localStorage.setItem(
+        "cms-consent",
+        JSON.stringify({ analytics: allow, timestamp: new Date().toISOString() })
+      );
+    } catch (err) { if (import.meta.env.DEV) console.warn("[cookies] Failed to persist consent", err); }
+
+    // Update Consent Mode if gtag is present
+    try {
+      const w = window as unknown as { gtag?: (...args: unknown[]) => void; loadGA?: () => void; __loadGA?: () => void; };
+      if (typeof w.gtag === "function") {
+        w.gtag("consent", "update", { analytics_storage: allow ? "granted" : "denied" });
+      }
+      // Attempt to load GA if now granted and a loader is available
+      if (allow) {
+        if (typeof (w.loadGA) === "function") w.loadGA();
+        else if (typeof (w.__loadGA) === "function") w.__loadGA();
+      }
+    } catch (err) { if (import.meta.env.DEV) console.warn("[cookies] Failed to apply consent to gtag", err); }
+  };
+
+  const handleAcceptAll = () => {
+    setAnalyticsEnabled(true);
+    applyConsent(true);
+    onClose();
+  };
+
+  const handleReject = () => {
+    setAnalyticsEnabled(false);
+    applyConsent(false);
+    onClose();
+  };
+
+  const handleSave = () => {
+    applyConsent(analyticsEnabled);
+    onClose();
+  };
+
+  if (!open) return null;
+  return (
+    <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-black/50" onClick={onClose} aria-hidden="true" />
+      <div className="relative w-full max-w-lg rounded-2xl bg-white dark:bg-neutral-900 shadow-2xl ring-1 ring-black/5 p-6">
+        <h3 className="text-xl font-semibold mb-2">Preferencias de cookies</h3>
+        <p className="text-sm text-muted-foreground mb-4">Puedes activar o desactivar las cookies de analítica (Google Analytics) en cualquier momento.</p>
+
+        <div className="flex items-center justify-between rounded-xl border bg-neutral-50 dark:bg-neutral-800 px-4 py-3 mb-6">
+          <div>
+            <p className="font-medium">Analítica (Google Analytics)</p>
+            <p className="text-sm text-muted-foreground">Nos ayuda a entender el uso del sitio de forma agregada y anónima.</p>
+          </div>
+          <label className="inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              className="sr-only peer"
+              checked={analyticsEnabled}
+              onChange={(e) => setAnalyticsEnabled(e.target.checked)}
+              aria-label="Permitir cookies de analítica"
+            />
+            <span className="w-11 h-6 bg-neutral-300 rounded-full peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary peer-checked:bg-primary relative transition-colors">
+              <span className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform ${analyticsEnabled ? 'translate-x-5' : ''}`}></span>
+            </span>
+          </label>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-end gap-3">
+          <button onClick={handleReject} className="rounded-xl bg-neutral-100 dark:bg-neutral-800 px-4 py-2 font-medium hover:bg-neutral-200 dark:hover:bg-neutral-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-300">Rechazar</button>
+          <button onClick={handleAcceptAll} className="rounded-xl bg-primary text-white px-4 py-2 font-medium shadow hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary">Aceptar todo</button>
+          <button onClick={handleSave} className="rounded-xl border px-4 py-2 font-medium hover:bg-neutral-50 dark:hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-300">Guardar</button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Cookies = () => {
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   return (
     <>
       <SEO
@@ -12,6 +110,9 @@ const Cookies = () => {
         path="/cookies"
         type="website"
       />
+      <Helmet>
+        <meta name="robots" content="noindex,follow" />
+      </Helmet>
       <Layout>
         <div className="min-h-screen bg-background">
           {/* Hero Section */}
@@ -24,6 +125,14 @@ const Cookies = () => {
               <p className="text-xl max-w-2xl mx-auto">
                 Información sobre cómo utilizamos las cookies en nuestro sitio web
               </p>
+              <div className="mt-6">
+                <button
+                  onClick={() => setIsSettingsOpen(true)}
+                  className="inline-flex items-center gap-2 rounded-2xl bg-white/95 text-primary px-5 py-2.5 font-medium shadow hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/80"
+                >
+                  Abrir preferencias de cookies
+                </button>
+              </div>
             </div>
           </section>
 
@@ -61,9 +170,9 @@ const Cookies = () => {
                           el sitio no puede funcionar correctamente.
                         </p>
                         <ul className="text-sm text-muted-foreground space-y-1">
-                          <li>• Gestión de preferencias de cookies</li>
-                          <li>• Funcionalidad del sitio web</li>
-                          <li>• Seguridad y protección</li>
+                          <li>Gestión de preferencias de cookies</li>
+                          <li>Funcionalidad del sitio web</li>
+                          <li>Seguridad y protección</li>
                         </ul>
                       </div>
 
@@ -76,10 +185,10 @@ const Cookies = () => {
                           recopilando información de forma agregada y anónima.
                         </p>
                         <ul className="text-sm text-muted-foreground space-y-1">
-                          <li>• Número de visitantes y páginas vistas</li>
-                          <li>• Tiempo de permanencia en el sitio</li>
-                          <li>• Fuentes de tráfico</li>
-                          <li>• Dispositivos y navegadores utilizados</li>
+                          <li>Número de visitantes y páginas vistas</li>
+                          <li>Tiempo de permanencia en el sitio</li>
+                          <li>Fuentes de tráfico</li>
+                          <li>Dispositivos y navegadores utilizados</li>
                         </ul>
                         <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
                           <p className="text-sm text-blue-800 dark:text-blue-200">
@@ -88,6 +197,14 @@ const Cookies = () => {
                           </p>
                         </div>
                       </div>
+                    </div>
+                    <div className="pt-4">
+                      <button
+                        onClick={() => setIsSettingsOpen(true)}
+                        className="rounded-xl bg-primary text-white px-4 py-2 font-medium shadow hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
+                      >
+                        Abrir preferencias de cookies
+                      </button>
                     </div>
                   </CardContent>
                 </Card>
@@ -160,7 +277,7 @@ const Cookies = () => {
                       
                       <div className="p-4 bg-neutral-50 dark:bg-neutral-900/50 rounded-lg">
                         <p className="text-sm text-muted-foreground">
-                          <strong>ID de medición:</strong> G-9EQQX1N1Z0<br />
+                          {/* <strong>ID de medición:</strong> G-9EQQX1N1Z0<br /> */}
                           <strong>Política de privacidad de Google:</strong>{" "}
                           <a 
                             href="https://policies.google.com/privacy" 
@@ -186,8 +303,8 @@ const Cookies = () => {
                     </p>
                     <div className="space-y-2 text-muted-foreground">
                       <p><strong>Email:</strong> info@cms.com.ar</p>
-                      <p><strong>Teléfono:</strong> +54-11-4000-0000</p>
-                      <p><strong>Dirección:</strong> Av. Corrientes 1000, Buenos Aires, Argentina</p>
+                      {/* <p><strong>Teléfono:</strong> +54-11-4000-0000</p> */}
+                      <p><strong>Dirección:</strong> Av. Corrientes 531 piso 8, C1043AAF,Buenos Aires, Argentina</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -196,6 +313,7 @@ const Cookies = () => {
                 <div className="text-center text-sm text-muted-foreground pt-8">
                   <p>Última actualización: {new Date().toLocaleDateString('es-AR')}</p>
                 </div>
+                <InlineCookieSettings open={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
               </div>
             </div>
           </section>

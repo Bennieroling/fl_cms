@@ -75,7 +75,7 @@ const Anuales = () => {
     <>
       <SEO 
         title="Exámenes periódicos/anuales | C.M.S Laboral"
-        description="Cumplimiento normativo y seguimiento de la salud ocupacional del personal."
+        description="Seguimiento obligatorio de salud para empleados expuestos a riesgos laborales. Exámenes médicos periódicos y anuales según normativa vigente para garantizar el cumplimiento y la salud ocupacional."
         path="/servicios/anuales"
       />
       <Layout>
@@ -86,7 +86,7 @@ const Anuales = () => {
           <section className="relative overflow-hidden h-[300px] bg-gradient-to-r from-green-600 to-green-800">
             <div className="relative container mx-auto px-4 py-20 text-center text-white">
               <CalendarCheck className="w-16 h-16 mx-auto mb-4" />
-              <h1 className="text-4xl lg:text-5xl font-bold mb-4">Exámenes Periódicos y Anuales</h1>
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6">Exámenes Periódicos y Anuales</h1>
               <p className="text-lg max-w-2xl mx-auto">
                 Seguimiento obligatorio de salud para empleados expuestos a riesgos laborales
               </p>

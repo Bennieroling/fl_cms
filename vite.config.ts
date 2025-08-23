@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    historyApiFallback: true,
   },
   plugins: [
     react(),
@@ -32,6 +33,7 @@ export default defineConfig(({ mode }) => ({
   },
   // Add cache headers for static assets
   preview: {
+    historyApiFallback: true,
     headers: {
       'Cache-Control': 'public, max-age=31536000, immutable',
     },

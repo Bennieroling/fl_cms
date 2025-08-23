@@ -22,20 +22,20 @@ const AgendarConsulta: React.FC = () => {
         <title>Contacto - Agendar Consulta | C.M.S Laboral</title>
         <meta name="description" content="Contacte a C.M.S Laboral para medicina ocupacional. Agende su consulta personalizada y solicite información sobre nuestros servicios de salud laboral en Argentina." />
         <meta name="keywords" content="contacto, agendar consulta, medicina ocupacional, salud laboral, exámenes médicos, Argentina" />
-        <link rel="canonical" href="https://www.cms.com.ar/agendar-consulta" />
+        <link rel="canonical" href="https://cms.com.ar/agendar-consulta" />
         
         {/* Open Graph tags */}
         <meta property="og:title" content="Contacto - Agendar Consulta | C.M.S Laboral" />
         <meta property="og:description" content="Contacte a C.M.S Laboral para medicina ocupacional. Agende su consulta personalizada y solicite información sobre nuestros servicios de salud laboral." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.cms.com.ar/agendar-consulta" />
-        <meta property="og:image" content="https://www.cms.com.ar/opengraph-contacto.png" />
+        <meta property="og:url" content="https://cms.com.ar/agendar-consulta" />
+        <meta property="og:image" content="https://cms.com.ar/og-image.png" />
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contacto - Agendar Consulta | C.M.S Laboral" />
         <meta name="twitter:description" content="Contacte a C.M.S Laboral para medicina ocupacional. Agende su consulta personalizada." />
-        <meta name="twitter:image" content="https://www.cms.com.ar/opengraph-contacto.png" />
+        <meta name="twitter:image" content="https://cms.com.ar/og-image.png" />
         
         {/* Structured data for ContactPage */}
         <script type="application/ld+json">
@@ -44,12 +44,12 @@ const AgendarConsulta: React.FC = () => {
             "@type": "ContactPage",
             "name": "Contacto - C.M.S Laboral",
             "description": "Página de contacto para agendar consultas de medicina ocupacional",
-            "url": "https://www.cms.com.ar/agendar-consulta",
+            "url": "https://cms.com.ar/agendar-consulta",
             "mainEntity": {
               "@type": "Organization",
               "name": "C.M.S Laboral",
-              "url": "https://www.cms.com.ar",
-              "logo": "https://www.cms.com.ar/logo.png",
+              "url": "https://cms.com.ar",
+              "logo": "https://cms.com.ar/logo.png",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+54-11-1234-5678",
@@ -78,7 +78,7 @@ const AgendarConsulta: React.FC = () => {
             <div className="absolute inset-0 bg-primary/80" />
           </div>
           <div className="relative container mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32 text-center text-white animate-fade-in">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">Contacto</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Contacto</h1>
              <p className="text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
             ¿Querés conocer nuestros planes, solicitar un turno o simplemente hacernos una consulta? Completá el formulario y nuestro equipo te responderá a la brevedad.
 
