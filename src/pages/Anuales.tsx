@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
-import { Helmet } from "react-helmet-async";
+import SEO from "@/components/SEO";
 import { CalendarCheck, FileText, Clock, CheckCircle, Users, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -73,16 +73,11 @@ const Anuales = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Exámenes Periódicos y Anuales | C.M.S Laboral Argentina</title>
-        <meta name="description" content="Exámenes médicos periódicos y anuales obligatorios para empleados expuestos a riesgos laborales. Seguimiento de salud ocupacional según normativa." />
-        <meta name="keywords" content="exámenes periódicos, exámenes anuales, seguimiento médico laboral, medicina ocupacional, evaluación riesgos laborales" />
-        <link rel="canonical" href="https://cms.com.ar/servicios/anuales" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify(faqJsonLD)}
-        </script>
-      </Helmet>
+      <SEO 
+        title="Exámenes periódicos/anuales | C.M.S Laboral"
+        description="Cumplimiento normativo y seguimiento de la salud ocupacional del personal."
+        path="/servicios/anuales"
+      />
       <Layout>
         <div>
           <Breadcrumbs items={breadcrumbItems} jsonLD={breadcrumbJsonLD} />

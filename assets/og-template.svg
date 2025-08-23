@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0066cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#004499;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:0.95" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="950" cy="100" r="80" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="1100" cy="250" r="60" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="200" cy="500" r="100" fill="rgba(255,255,255,0.06)"/>
+  
+  <!-- Main content card -->
+  <rect x="80" y="120" width="1040" height="390" rx="20" fill="url(#card-gradient)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  
+  <!-- Logo/Icon area -->
+  <rect x="120" y="180" width="120" height="120" rx="60" fill="#0066cc"/>
+  <rect x="140" y="200" width="80" height="80" rx="40" fill="white"/>
+  <rect x="160" y="220" width="40" height="40" rx="20" fill="#0066cc"/>
+  
+  <!-- Medical cross icon -->
+  <rect x="174" y="230" width="12" height="20" fill="white"/>
+  <rect x="169" y="235" width="22" height="10" fill="white"/>
+  
+  <!-- Title -->
+  <text x="280" y="220" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#1e293b">
+    C.M.S Laboral
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="280" y="270" font-family="Arial, sans-serif" font-size="32" fill="#64748b">
+    Medicina Ocupacional
+  </text>
+  
+  <!-- Strapline -->
+  <text x="280" y="320" font-family="Arial, sans-serif" font-size="24" fill="#475569">
+    Gestión profesional de la salud laboral
+  </text>
+  
+  <!-- Services list -->
+  <text x="280" y="370" font-family="Arial, sans-serif" font-size="20" fill="#64748b">
+    • Exámenes preocupacionales   • Control de ausentismo   • Exámenes anuales
+  </text>
+  
+  <!-- Location -->
+  <text x="280" y="420" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8">
+    Buenos Aires, Argentina
+  </text>
+  
+  <!-- Website -->
+  <text x="280" y="460" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#0066cc">
+    cms.com.ar
+  </text>
+</svg>

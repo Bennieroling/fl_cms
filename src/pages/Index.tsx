@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { Helmet } from "react-helmet-async";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -21,115 +21,12 @@ const Index = () => {
 
   return (
     <>
-      <Helmet>
-        <title>C.M.S Laboral - Medicina Ocupacional y Salud Laboral Argentina</title>
-        <meta name="description" content="Empresa líder en medicina ocupacional en Argentina. Exámenes médicos laborales, gestión de salud ocupacional, certificaciones médicas y cumplimiento normativo para empresas. ✓100+ empresas nos confían ✓24/7 soporte." />
-        <meta name="keywords" content="medicina ocupacional, salud laboral Argentina, exámenes médicos laborales, certificaciones médicas, medicina del trabajo, salud ocupacional empresas, exámenes preocupacionales, medicina laboral Buenos Aires, gestión salud ocupacional, cumplimiento normativo laboral" />
-        <link rel="canonical" href="https://www.cms.com.ar/" />
-        
-        {/* Open Graph tags */}
-        <meta property="og:title" content="C.M.S Laboral - Medicina Ocupacional y Salud Laboral Argentina" />
-        <meta property="og:description" content="Empresa líder en medicina ocupacional. Exámenes médicos laborales, gestión de salud ocupacional y cumplimiento normativo. ✓100+ empresas nos confían." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.cms.com.ar/" />
-        <meta property="og:image" content="https://www.cms.com.ar/opengraph-home.png" />
-        <meta property="og:locale" content="es_AR" />
-        <meta property="og:site_name" content="C.M.S Laboral" />
-        
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@cmslaboral" />
-        <meta name="twitter:title" content="C.M.S Laboral - Medicina Ocupacional Argentina" />
-        <meta name="twitter:description" content="Empresa líder en medicina ocupacional. Exámenes médicos laborales y gestión de salud ocupacional." />
-        <meta name="twitter:image" content="https://www.cms.com.ar/opengraph-home.png" />
-        
-        {/* Additional SEO meta tags */}
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="googlebot" content="index, follow" />
-        <meta name="geo.region" content="AR" />
-        <meta name="geo.placename" content="Argentina" />
-        <meta name="language" content="Spanish" />
-        
-        {/* Structured data for Organization and LocalBusiness */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Organization",
-                "@id": "https://www.cms.com.ar/#organization",
-                "name": "C.M.S Laboral",
-                "url": "https://www.cms.com.ar/",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://www.cms.com.ar/logo.png",
-                  "width": 300,
-                  "height": 300
-                },
-                "description": "Empresa especializada en medicina ocupacional y salud laboral en Argentina",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressCountry": "AR",
-                  "addressLocality": "Buenos Aires"
-                },
-                "contactPoint": {
-                  "@type": "ContactPoint",
-                  "telephone": "+54-11-1234-5678",
-                  "contactType": "customer service",
-                  "areaServed": "AR",
-                  "availableLanguage": ["Spanish"]
-                },
-                "sameAs": [
-                  "https://www.linkedin.com/company/cmslaboral",
-                  "https://www.facebook.com/cmslaboral"
-                ]
-              },
-              {
-                "@type": "LocalBusiness",
-                "@id": "https://www.cms.com.ar/#localbusiness",
-                "name": "C.M.S Laboral",
-                "image": "https://www.cms.com.ar/logo.png",
-                "description": "Servicios integrales de medicina ocupacional y salud laboral para empresas",
-                "url": "https://www.cms.com.ar/",
-                "telephone": "+54-11-1234-5678",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressCountry": "AR",
-                  "addressLocality": "Buenos Aires"
-                },
-                "geo": {
-                  "@type": "GeoCoordinates",
-                  "latitude": -34.6118,
-                  "longitude": -58.3960
-                },
-                "openingHoursSpecification": {
-                  "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                  "opens": "08:00",
-                  "closes": "18:00"
-                },
-                "priceRange": "$$",
-                "servedCuisine": "Medicina Ocupacional"
-              },
-              {
-                "@type": "WebSite",
-                "@id": "https://www.cms.com.ar/#website",
-                "url": "https://www.cms.com.ar/",
-                "name": "C.M.S Laboral",
-                "description": "Medicina ocupacional y salud laboral en Argentina",
-                "publisher": {
-                  "@id": "https://www.cms.com.ar/#organization"
-                },
-                "potentialAction": {
-                  "@type": "SearchAction",
-                  "target": "https://www.cms.com.ar/?s={search_term_string}",
-                  "query-input": "required name=search_term_string"
-                }
-              }
-            ]
-          })}
-        </script>
-      </Helmet>
+      <SEO 
+        title="C.M.S Laboral | Gestión profesional de la salud laboral"
+        description="Servicios de medicina laboral en Buenos Aires: exámenes preocupacionales, control de ausentismo, exámenes anuales y consultoría."
+        path="/"
+        image="/og-image.jpg"
+      />
       <Layout>
         <Hero />
 

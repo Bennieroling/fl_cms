@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
-import { Helmet } from "react-helmet-async";
+import SEO from "@/components/SEO";
 import { Stethoscope, FileText, Clock, CheckCircle, Home, Building } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -73,16 +73,11 @@ const Ausentismo = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Control de Ausentismo | C.M.S Laboral Argentina</title>
-        <meta name="description" content="Servicio de control médico de ausentismo laboral. Visitas domiciliarias, verificación médica y reportes detallados para recursos humanos." />
-        <meta name="keywords" content="control ausentismo, visita médica domicilio, médico a domicilio laboral, gestión ausencias, reporte médico RR.HH." />
-        <link rel="canonical" href="https://cms.com.ar/servicios/ausentismo" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify(faqJsonLD)}
-        </script>
-      </Helmet>
+      <SEO 
+        title="Control de ausentismo laboral | C.M.S Laboral"
+        description="Visitas médicas, verificación y reportes a RR.HH. con indicadores claros."
+        path="/servicios/ausentismo"
+      />
       <Layout>
         <div>
           <Breadcrumbs items={breadcrumbItems} jsonLD={breadcrumbJsonLD} />

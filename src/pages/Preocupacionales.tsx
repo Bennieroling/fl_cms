@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
-import { Helmet } from "react-helmet-async";
+import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { UserCheck, FileText, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -74,16 +74,11 @@ const Preocupacionales = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Exámenes Preocupacionales | C.M.S Laboral Argentina</title>
-        <meta name="description" content="Exámenes médicos preocupacionales completos según normativa vigente. Historia clínica, examen físico y estudios complementarios para ingreso laboral seguro." />
-        <meta name="keywords" content="exámenes preocupacionales, examen médico laboral, ingreso laboral, apto médico, medicina ocupacional, evaluación médica previa" />
-        <link rel="canonical" href="https://cms.com.ar/servicios/preocupacionales" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify(faqJsonLD)}
-        </script>
-      </Helmet>
+      <SEO 
+        title="Exámenes preocupacionales para empresas | C.M.S Laboral"
+        description="Aptos médicos y estudios específicos según el puesto. Entrega de informe en 24–48 h."
+        path="/servicios/preocupacionales"
+      />
       <Layout>
         <div>
           <Breadcrumbs items={breadcrumbItems} jsonLD={breadcrumbJsonLD} />
