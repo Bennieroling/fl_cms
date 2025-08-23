@@ -128,7 +128,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         html: populatedNotification,
       }),
       resend.emails.send({
-        from: 'CMS Laboral <info@cms.com.ar', // Use Resend's test domain
+        from: 'CMS Laboral <info@cms.com.ar>', // Use Resend's test domain
         to: email,
         subject: 'Gracias por tu solicitud',
         html: populatedConfirmation,
