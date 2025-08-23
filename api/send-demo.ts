@@ -121,14 +121,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Send in parallel; note replyTo + response shape
     const [internalRes, userRes] = await Promise.all([
       resend.emails.send({
-        from: 'CMS Laboral <onboarding@resend.dev>', // Use Resend's test domain
+        from: 'CMS Laboral <info@cms.com.ar>', // Use Resend's test domain
         to: 'hello@festinalente.dev',
         replyTo: email, // ✅ camelCase
         subject: 'Nueva solicitud de demostración',
         html: populatedNotification,
       }),
       resend.emails.send({
-        from: 'CMS Laboral <onboarding@resend.dev>', // Use Resend's test domain
+        from: 'CMS Laboral <info@cms.com.ar', // Use Resend's test domain
         to: email,
         subject: 'Gracias por tu solicitud',
         html: populatedConfirmation,
