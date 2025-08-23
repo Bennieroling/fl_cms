@@ -1,4 +1,5 @@
-import { Linkedin, Mail, MapPin, Clock } from "lucide-react"; 
+import { Linkedin, Mail, MapPin, Clock, Shield } from "lucide-react";
+import { Link } from "react-router-dom"; 
 
 const Footer = () => (
   <footer className="bg-card border-t py-8">
@@ -35,6 +36,13 @@ const Footer = () => (
   <span className="flex items-center gap-1">
     <Clock className="w-4 h-4" aria-hidden="true" /> Lun a Vie, 9:00 - 18:00
   </span>
+  <Link 
+    to="/cookies" 
+    className="flex items-center gap-1 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded px-2 py-1"
+    aria-label="Ver política de cookies"
+  >
+    <Shield className="w-4 h-4" aria-hidden="true" /> Política de Cookies
+  </Link>
 </div>
     </div>
   </footer>

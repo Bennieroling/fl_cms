@@ -79,6 +79,23 @@
     <!-- Font optimization with display swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
+    <!-- Google Analytics 4 Bootstrap (Consent Mode v2) -->
+    <script>
+      // Initialize dataLayer and gtag queue before GA loads
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      
+      // Set default consent state (denied until user opts in)
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+    </script>
+    
     <!-- MedicalOrganization Structured Data -->
     <script type="application/ld+json">
     {

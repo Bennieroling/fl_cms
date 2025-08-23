@@ -16,6 +16,8 @@ import Search from "./pages/Search";
 import Preocupacionales from "./pages/Preocupacionales";
 import Ausentismo from "./pages/Ausentismo";
 import Anuales from "./pages/Anuales";
+import Cookies from "./pages/Cookies";
+import CookieBanner from "./components/CookieBanner";
 
 function ScrollToHash() {
   const { hash } = useLocation();
@@ -48,6 +50,7 @@ const App = () => (
             <Route path="/servicios/preocupacionales" element={<Preocupacionales />} />
             <Route path="/servicios/ausentismo" element={<Ausentismo />} />
             <Route path="/servicios/anuales" element={<Anuales />} />
+            <Route path="/cookies" element={<Cookies />} />
             <Route path="/" element={<Index />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
@@ -55,6 +58,7 @@ const App = () => (
             <Route path="/Servicios" element={<Servicios />} />
             <Route path="/Login" element={<Login />} />
           </Routes>
+          <CookieBanner />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

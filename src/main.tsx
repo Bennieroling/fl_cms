@@ -7,8 +7,8 @@ if (typeof window !== 'undefined') {
   const originalAddEventListener = EventTarget.prototype.addEventListener;
   EventTarget.prototype.addEventListener = function(
     type: string,
-    listener: any,
-    options?: any
+    listener: EventListenerOrEventListenerObject,
+    options?: boolean | AddEventListenerOptions
   ) {
     if (type === 'scroll' || type === 'wheel' || type === 'touchmove') {
       const opts = typeof options === 'boolean' ? { passive: true, capture: options } : { passive: true, ...options };
