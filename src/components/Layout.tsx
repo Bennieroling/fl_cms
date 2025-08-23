@@ -11,19 +11,19 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="border-b sticky top-0 z-50 bg-white">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container flex h-16 items-center justify-between px-4 sm:px-6">
           <Link to="/" className="flex items-center gap-2" aria-label="Go to homepage">
             {/* <div className="w-8 h-8 bg-gradient-medical rounded-lg flex items-center justify-center">
               <Stethoscope className="w-5 h-5 text-white" />
             </div> */}
             <img src="logo_csm_png.png" alt="Logo" className="w-8 h-8 object-contain"/>
-            <h1 className="text-xl font-bold text-foreground">C.M.S LABORAL</h1>
+            <h1 className="text-lg sm:text-xl font-bold text-foreground">C.M.S LABORAL</h1>
           </Link>
           <MenubarMain />
         </div>
       </header>
 
-      <main className="flex-grow bg-background py-18 px-4">
+      <main className="flex-grow bg-background">
         {children}
       </main>
 

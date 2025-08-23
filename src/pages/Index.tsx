@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -30,9 +31,119 @@ const Index = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   return (
-    <Layout>
+    <>
+      <Helmet>
+        <title>C.M.S Laboral - Medicina Ocupacional y Salud Laboral Argentina</title>
+        <meta name="description" content="Empresa líder en medicina ocupacional en Argentina. Exámenes médicos laborales, gestión de salud ocupacional, certificaciones médicas y cumplimiento normativo para empresas. ✓100+ empresas nos confían ✓24/7 soporte." />
+        <meta name="keywords" content="medicina ocupacional, salud laboral Argentina, exámenes médicos laborales, certificaciones médicas, medicina del trabajo, salud ocupacional empresas, exámenes preocupacionales, medicina laboral Buenos Aires, gestión salud ocupacional, cumplimiento normativo laboral" />
+        <link rel="canonical" href="https://www.cms.com.ar/" />
+        
+        {/* Open Graph tags */}
+        <meta property="og:title" content="C.M.S Laboral - Medicina Ocupacional y Salud Laboral Argentina" />
+        <meta property="og:description" content="Empresa líder en medicina ocupacional. Exámenes médicos laborales, gestión de salud ocupacional y cumplimiento normativo. ✓100+ empresas nos confían." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.cms.com.ar/" />
+        <meta property="og:image" content="https://www.cms.com.ar/opengraph-home.png" />
+        <meta property="og:locale" content="es_AR" />
+        <meta property="og:site_name" content="C.M.S Laboral" />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@cmslaboral" />
+        <meta name="twitter:title" content="C.M.S Laboral - Medicina Ocupacional Argentina" />
+        <meta name="twitter:description" content="Empresa líder en medicina ocupacional. Exámenes médicos laborales y gestión de salud ocupacional." />
+        <meta name="twitter:image" content="https://www.cms.com.ar/opengraph-home.png" />
+        
+        {/* Additional SEO meta tags */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="geo.region" content="AR" />
+        <meta name="geo.placename" content="Argentina" />
+        <meta name="language" content="Spanish" />
+        
+        {/* Structured data for Organization and LocalBusiness */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://www.cms.com.ar/#organization",
+                "name": "C.M.S Laboral",
+                "url": "https://www.cms.com.ar/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.cms.com.ar/logo.png",
+                  "width": 300,
+                  "height": 300
+                },
+                "description": "Empresa especializada en medicina ocupacional y salud laboral en Argentina",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "AR",
+                  "addressLocality": "Buenos Aires"
+                },
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+54-11-1234-5678",
+                  "contactType": "customer service",
+                  "areaServed": "AR",
+                  "availableLanguage": ["Spanish"]
+                },
+                "sameAs": [
+                  "https://www.linkedin.com/company/cmslaboral",
+                  "https://www.facebook.com/cmslaboral"
+                ]
+              },
+              {
+                "@type": "LocalBusiness",
+                "@id": "https://www.cms.com.ar/#localbusiness",
+                "name": "C.M.S Laboral",
+                "image": "https://www.cms.com.ar/logo.png",
+                "description": "Servicios integrales de medicina ocupacional y salud laboral para empresas",
+                "url": "https://www.cms.com.ar/",
+                "telephone": "+54-11-1234-5678",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "AR",
+                  "addressLocality": "Buenos Aires"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": -34.6118,
+                  "longitude": -58.3960
+                },
+                "openingHoursSpecification": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  "opens": "08:00",
+                  "closes": "18:00"
+                },
+                "priceRange": "$$",
+                "servedCuisine": "Medicina Ocupacional"
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://www.cms.com.ar/#website",
+                "url": "https://www.cms.com.ar/",
+                "name": "C.M.S Laboral",
+                "description": "Medicina ocupacional y salud laboral en Argentina",
+                "publisher": {
+                  "@id": "https://www.cms.com.ar/#organization"
+                },
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://www.cms.com.ar/?s={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+      <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden h-[250px] md:h-[450px]">
+      <section className="relative overflow-hidden h-[300px] sm:h-[350px] md:h-[450px]">
         <div className="absolute inset-0">
           <img 
             src={heroImage} 
@@ -42,36 +153,31 @@ const Index = () => {
           <div className="absolute inset-0 bg-primary/80" />
         </div>
         
-        <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
+        <div className="relative container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center items-center text-center">
+          {/* Logo - Hidden on mobile, positioned responsively on larger screens */}
           <img
             src="/logo_white.png"
             alt="Logo"
-            className="absolute right-2 top-[30] transform -translate-y-[5%] w-60 h-60 md:w-80 md:h-80 "
-            // style={{ animationFillMode: "forwards", animationDelay: "0.1s" }}
+            className="hidden lg:block absolute right-4 top-1/4 transform -translate-y-1/4 w-48 h-48 xl:w-60 xl:h-60 2xl:w-80 2xl:h-80 opacity-0 animate-fade-in-slide"
           />
-          {/* <img
-            src="/cms_logo_png.png"
-            alt="Logo"
-            className="absolute left-2 top-[30] transform -translate-y-[5%] w-60 h-60 md:w-80 md:h-80 "
-            // style={{ animationFillMode: "forwards", animationDelay: "0.1s" }}
-          /> */}
+          
             <div className="max-w-4xl mx-auto text-center text-white animate-fade-in">
-            <Badge variant="secondary" className="mb-6 text-primary">
+            <Badge variant="secondary" className="mb-4 sm:mb-6 text-primary text-xs sm:text-sm">
               Con la confianza de más de 100 empresas
             </Badge>
               
            <div className="relative w-full flex flex-col items-center">
-              <h1 className="text-4xl lg:text-6xl font-bold text-white text-center">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white text-center leading-tight">
               Gestión Profesional de la Salud Laboral
               </h1>
 
             </div>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
               Medicina laboral personalizada para tu empresa: atención en tu oficina o en nuestro centro, exámenes, control de ausentismo, asesoría legal y prevención. Cumplí con la normativa, cuidá a tu equipo y mejorá tus resultados.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="agendar-consulta#contacto">
-                <Button variant="hero" size="lg" className="group">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4">
+              <Link to="agendar-consulta#contacto" className="w-full sm:w-auto">
+                <Button variant="hero" size="lg" className="group w-full sm:w-auto min-h-[48px] text-base font-semibold">
                   Contáctanos
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -91,18 +197,18 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-card">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+      <section className="py-12 sm:py-16 bg-card">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
             {[
               { number: "100+", label: "Empresas Atendidas" },
               { number: "50k+", label: "Empleados Gestionados" },
               { number: "99.9%", label: "Disponibilidad Garantizada" },
               { number: "24/7", label: "Soporte Disponible" }
             ].map((stat, index) => (
-              <div key={index} className="space-y-2">
-                <div className="text-3xl font-bold text-primary">{stat.number}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
+              <div key={index} className="space-y-2 py-4">
+                <div className="text-2xl sm:text-3xl font-bold text-primary">{stat.number}</div>
+                <div className="text-sm sm:text-base text-muted-foreground px-2">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -110,18 +216,18 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-secondary/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-foreground mb-4">
+      <section className="py-16 sm:py-20 bg-secondary/50">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
               Solución Integral en Salud Ocupacional
             </h3>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
               Todo lo necesario para cumplir con la salud laboral y el bienestar de tus empleados
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
                 icon: Users,
@@ -155,12 +261,12 @@ const Index = () => {
               }
             ].map((feature, index) => (
               <Card key={index} className="shadow-professional hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 text-center">
+                <CardContent className="p-4 sm:p-6 text-center">
                   <div className="w-12 h-12 bg-gradient-medical rounded-lg flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="text-lg font-semibold mb-2">{feature.title}</h4>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <h4 className="text-base sm:text-lg font-semibold mb-2">{feature.title}</h4>
+                  <p className="text-sm sm:text-base text-muted-foreground">{feature.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -292,7 +398,8 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

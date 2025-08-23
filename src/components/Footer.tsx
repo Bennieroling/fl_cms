@@ -4,7 +4,9 @@ import IconWhatsapp from "./icons/IconWhatsapp.tsx";
 const Footer = () => (
   <footer className="bg-card border-t py-8">
     <div className="container mx-auto px-4 text-center text-muted-foreground">
-      <p>&copy; 2024 C.M.S Laboral. Gestión profesional de la salud laboral.</p>
+      <p>
+        &copy; 2024–{new Date().getFullYear()} C.M.S Laboral. Gestión profesional de la salud laboral.
+        </p>
       <div className="mt-4 flex flex-wrap justify-center items-center gap-4 text-sm">
   <a href="https://www.linkedin.com/company/medclinic" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:underline">
     <Linkedin className="w-4 h-4" /> LinkedIn

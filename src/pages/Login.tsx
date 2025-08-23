@@ -1,11 +1,20 @@
 
 
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 const Login: React.FC = () => {
   return (
-    <Layout>
+    <>
+      <Helmet>
+        <title>Iniciar Sesión | C.M.S Laboral - Portal Empresas</title>
+        <meta name="description" content="Acceso al portal empresarial de C.M.S Laboral. Inicie sesión para gestionar los servicios de medicina ocupacional de su empresa." />
+        <meta name="keywords" content="login cms laboral, acceso portal empresas, iniciar sesion medicina ocupacional, portal clientes cms" />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://www.cms.com.ar/login" />
+      </Helmet>
+      <Layout>
     <div className="min-h-screen bg-gray-50 flex items-start justify-center px-4 pt-16">
       <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Iniciar Sesión</h2>
@@ -44,7 +53,8 @@ const Login: React.FC = () => {
         </p>
       </div>
     </div>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

@@ -255,22 +255,47 @@ const MenubarMain = () => {
 
       {/* Mobile Menu Toggle */}
       <button
-        className="sm:hidden p-2"
+        className="sm:hidden p-3 rounded-md hover:bg-gray-100 transition-colors"
         onClick={() => setIsOpen(prev => !prev)}
         aria-label="Toggle menu"
+        aria-expanded={isOpen}
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 rounded-md bg-white shadow-lg border z-50 sm:hidden flex flex-col">
-          <Link to="/nosotros" className="text-sm font-medium">Nosotros</Link>
-          <Link to="/servicios" className="px-4 py-2 hover:bg-gray-100">Servicios</Link>
-          <Link to="/agendar-consulta#hero" className="px-4 py-2 hover:bg-gray-100">Contacto</Link>
-          <Link to="/login" className="px-4 py-2 hover:bg-gray-100">
-            <Button variant="medical">Acceso Clientes</Button>
-          </Link>
+        <div className="absolute right-0 top-full mt-2 w-56 rounded-lg bg-white shadow-lg border z-50 sm:hidden">
+          <div className="flex flex-col py-2">
+            <Link 
+              to="/nosotros" 
+              className="px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors min-h-[48px] flex items-center"
+              onClick={() => setIsOpen(false)}
+            >
+              Nosotros
+            </Link>
+            <Link 
+              to="/servicios" 
+              className="px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors min-h-[48px] flex items-center"
+              onClick={() => setIsOpen(false)}
+            >
+              Servicios
+            </Link>
+            <Link 
+              to="/agendar-consulta#hero" 
+              className="px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors min-h-[48px] flex items-center"
+              onClick={() => setIsOpen(false)}
+            >
+              Contacto
+            </Link>
+            <div className="px-4 py-3">
+              <Link to="/login" onClick={() => setIsOpen(false)}>
+                <Button variant="medical" className="w-full min-h-[48px]">
+                  Acceso Clientes
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </div>
