@@ -65,8 +65,10 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     
     <!-- Preload critical assets for LCP optimization -->
-    <link rel="preload" href="/src/assets/medical-hero.jpg" as="image" type="image/jpeg" />
-    <link rel="preload" href="/logo_white.png" as="image" type="image/png" />
+    <link rel="preload" href="/hero-640.webp" as="image" type="image/webp" imagesrcset="/hero-640.webp 640w, /hero-1280.webp 1280w" imagesizes="100vw" media="(max-width: 767px)" />
+    <link rel="preload" href="/hero-1280.webp" as="image" type="image/webp" imagesrcset="/hero-640.webp 640w, /hero-1280.webp 1280w" imagesizes="100vw" media="(min-width: 768px)" />
+    <link rel="preload" href="/hero-640.jpg" as="image" type="image/jpeg" imagesrcset="/hero-640.jpg 640w, /hero-1280.jpg 1280w" imagesizes="100vw" media="(max-width: 767px)" />
+    <link rel="preload" href="/hero-1280.jpg" as="image" type="image/jpeg" imagesrcset="/hero-640.jpg 640w, /hero-1280.jpg 1280w" imagesizes="100vw" media="(min-width: 768px)" />
     
     <!-- Preload critical scripts -->
     <link rel="modulepreload" href="/src/main.tsx" />

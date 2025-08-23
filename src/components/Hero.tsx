@@ -3,19 +3,40 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import medicalHeroImg from "@/assets/medical-hero.jpg";
 
 const Hero: React.FC = () => {
   return (
     <section className="relative overflow-hidden h-[300px] sm:h-[350px] md:h-[450px]">
       <div className="absolute inset-0">
-        <img 
-          src={medicalHeroImg}
-          alt="Professional medical facility providing occupational health services" 
-          className="w-full h-full object-cover"
-          loading="eager"
-          decoding="async"
-        />
+        <picture>
+          <source 
+            media="(min-width: 768px)" 
+            srcSet="/hero-1280.webp 1280w" 
+            sizes="100vw"
+            type="image/webp" 
+          />
+          <source 
+            media="(min-width: 768px)" 
+            srcSet="/hero-1280.jpg 1280w" 
+            sizes="100vw"
+            type="image/jpeg" 
+          />
+          <source 
+            srcSet="/hero-640.webp 640w" 
+            sizes="100vw"
+            type="image/webp" 
+          />
+          <img 
+            src="/hero-640.jpg"
+            alt="Professional medical facility providing occupational health services" 
+            className="w-full h-full object-cover"
+            fetchPriority="high"
+            decoding="async"
+            loading="eager"
+            width="1280"
+            height="450"
+          />
+        </picture>
         <div className="absolute inset-0 bg-primary/80" />
       </div>
       

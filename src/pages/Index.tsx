@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import ContactInfo from "@/components/forms/contact-info";
