@@ -10,31 +10,24 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0">
         <picture>
           <source 
-            media="(min-width: 768px)" 
-            srcSet="/hero-1280.webp 1280w" 
-            sizes="100vw"
-            type="image/webp" 
+            type="image/avif" 
+            srcSet="/hero-640.avif 640w, /hero-1280.avif 1280w" 
+            sizes="(max-width: 768px) 100vw, 1280px"
           />
           <source 
-            media="(min-width: 768px)" 
-            srcSet="/hero-1280.jpg 1280w" 
-            sizes="100vw"
-            type="image/jpeg" 
-          />
-          <source 
-            srcSet="/hero-640.webp 640w" 
-            sizes="100vw"
             type="image/webp" 
+            srcSet="/hero-640.webp 640w, /hero-1280.webp 1280w" 
+            sizes="(max-width: 768px) 100vw, 1280px"
           />
           <img 
-            src="/hero-640.jpg"
-            alt="Professional medical facility providing occupational health services" 
-            className="w-full h-full object-cover"
+            src="/hero-1280.jpg"
+            srcSet="/hero-640.jpg 640w, /hero-1280.jpg 1280w"
+            sizes="(max-width: 768px) 100vw, 1280px"
+            width="1280" 
+            height="720"
+            alt="Salud laboral para RR.HH."
             fetchPriority="high"
             decoding="async"
-            loading="eager"
-            width="1280"
-            height="450"
           />
         </picture>
         <div className="absolute inset-0 bg-primary/80" />

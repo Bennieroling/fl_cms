@@ -1,11 +1,7 @@
 import React from "react";
-import { sendToBot, initBot } from "@/lib/chatbot";
 import Footer from "@/components/Footer";
 import MenubarMain from "@/components/ui/menubar";
-import { Stethoscope } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import ChatWidget from "@/components/ChatWidget";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -25,7 +21,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded p-2 -m-2" 
             aria-label="Ir a la página principal"
           >
-            <img src="logo_csm_png.png" alt="C.M.S Laboral" className="w-8 h-8 object-contain"/>
+            <img src="logo_csm_png.png" alt="C.M.S Laboral" className="w-8 h-8 object-contain" loading="lazy" decoding="async"/>
             <span className="text-lg sm:text-xl font-bold text-foreground">C.M.S LABORAL</span>
           </Link>
           <nav aria-label="Navegación principal">
@@ -39,8 +35,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </main>
 
       <Footer />
-
-      {/* <ChatWidget /> */}
     </div>
   );
 };

@@ -1,5 +1,4 @@
-import { Linkedin, Phone, Mail, MapPin, Clock, } from "lucide-react";
-import IconWhatsapp from "./icons/IconWhatsapp.tsx"; 
+import { Linkedin, Mail, MapPin, Clock } from "lucide-react"; 
 
 const Footer = () => (
   <footer className="bg-card border-t py-8">
