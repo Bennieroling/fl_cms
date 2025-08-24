@@ -1,73 +1,163 @@
-# Welcome to your Lovable project
+# CMS Laboral - Website
 
-## Project info
+A modern occupational health services website built for CMS Laboral, providing comprehensive medical examination services and occupational health solutions for businesses in Argentina.
 
-**URL**: https://lovable.dev/projects/6416c2e2-adf0-4570-8bdf-a761812a285c
+## Project Overview
 
-## How can I edit this code?
+This website serves as the digital presence for CMS Laboral, featuring:
 
-There are several ways of editing your application.
+- **Service Information**: Comprehensive details about occupational health services
+- **Interactive Forms**: Contact and demo request functionality with email integration
+- **Responsive Design**: Mobile-first approach with modern UI components
+- **Performance Optimized**: Fast loading times with image optimization
+- **SEO Friendly**: Proper meta tags, sitemap, and structured data
 
-**Use Lovable**
+## Development Setup
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6416c2e2-adf0-4570-8bdf-a761812a285c) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (18.x or higher) - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- npm (comes with Node.js)
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Clone the repository
+git clone <repository-url>
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Navigate to project directory
+cd fl_cms-1
 
-Follow these steps:
+# Install dependencies
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Available Scripts
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development environment
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint for code quality
+- `npm run optimize:images` - Optimize images for web
+- `npm run generate:og` - Generate Open Graph images
 
-**Use GitHub Codespaces**
+## Technology Stack
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Core Framework
+- **Vite** - Fast build tool and development server
+- **React 18** - UI library with modern hooks
+- **TypeScript** - Type-safe JavaScript development
+- **React Router DOM** - Client-side routing
 
-## What technologies are used for this project?
+### UI & Styling
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - High-quality React components
+- **Radix UI** - Accessible component primitives
+- **Lucide React** - Beautiful icon library
+- **next-themes** - Dark/light theme support
 
-This project is built with:
+### Form Handling
+- **React Hook Form** - Performant form library
+- **Zod** - Schema validation
+- **@hookform/resolvers** - Form validation integration
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Email Services
+- **Resend** - Modern email API for transactional emails
+- **HTML Templates** - Custom email templates with variable substitution
 
-## How can I deploy this project?
+### Data & State
+- **TanStack Query** - Data fetching and caching
+- **React Helmet Async** - Document head management
 
-Simply open [Lovable](https://lovable.dev/projects/6416c2e2-adf0-4570-8bdf-a761812a285c) and click on Share -> Publish.
+### Additional Features
+- **Embla Carousel** - Touch-friendly carousel component
+- **Recharts** - Chart and data visualization library
+- **Sonner** - Toast notifications
+- **date-fns** - Date utility library
+- **cmdk** - Command palette component
 
-## Can I connect a custom domain to my Lovable project?
+### Development Tools
+- **ESLint** - Code linting with TypeScript support
+- **Sharp** - Image processing and optimization
+- **Terser** - JavaScript minification
+- **PostCSS** - CSS processing with Autoprefixer
 
-Yes, you can!
+## Key Features
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Email Integration
+The application uses **Resend** for email functionality:
+- Demo request forms send notifications to administrators
+- Automatic confirmation emails to users
+- HTML email templates with variable substitution
+- Environment-based configuration for different deployments
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Performance Optimization
+- Image optimization with multiple format support (AVIF, WebP, JPEG)
+- Lazy loading and responsive images
+- Bundle optimization with Vite
+- SEO optimization with proper meta tags
+
+### Accessibility
+- ARIA-compliant components via Radix UI
+- Keyboard navigation support
+- Screen reader compatibility
+- Color contrast compliance
+
+## Deployment
+
+### Environment Variables
+
+Required for email functionality:
+```
+RESEND_API_KEY=your_resend_api_key
+FROM_EMAIL=your_from_email@domain.com
+ALERT_TO_EMAIL=notifications@yourdomain.com
+```
+
+### Build Process
+
+```bash
+# Production build
+npm run build
+
+# The built files will be in the `dist/` directory
+```
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # shadcn/ui components
+│   ├── forms/          # Form components
+│   └── icons/          # Custom icons
+├── pages/              # Route components
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions and configurations
+├── assets/             # Images and static assets
+└── main.tsx           # Application entry point
+
+api/                    # Serverless API functions
+templates/              # Email templates
+public/                 # Static assets
+```
+
+## Documentation
+
+This README serves as the primary documentation for the project. For additional implementation details:
+
+- Check the `recommendations.md` file for website enhancement suggestions
+- Component documentation is available in respective component files
+- API endpoints are documented in the `api/` directory
+
+## Support
+
+For technical issues or questions about the codebase, please refer to the project's issue tracker or contact the development team.
+
+---
+
+*Built with modern web technologies for optimal performance and user experience.*
