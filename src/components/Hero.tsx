@@ -12,22 +12,23 @@ const Hero: React.FC = () => {
           <source 
             type="image/avif" 
             srcSet="/hero-640.avif 640w, /hero-1280.avif 1280w" 
-            sizes="(max-width: 768px) 100vw, 1280px"
+            sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1280px"
           />
           <source 
             type="image/webp" 
             srcSet="/hero-640.webp 640w, /hero-1280.webp 1280w" 
-            sizes="(max-width: 768px) 100vw, 1280px"
+            sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1280px"
           />
           <img 
             src="/hero-1280.jpg"
             srcSet="/hero-640.jpg 640w, /hero-1280.jpg 1280w"
-            sizes="(max-width: 768px) 100vw, 1280px"
+            sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1280px"
             width="1280" 
             height="720"
             alt="Salud laboral para RR.HH."
             fetchPriority="high"
-            decoding="async"
+            decoding="sync"
+            loading="eager"
           />
         </picture>
         <div className="absolute inset-0 bg-primary/80" />
