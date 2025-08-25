@@ -13,9 +13,11 @@ import {
   CheckCircle,
   Building2,
   Brain,
-  FileCheck
+  FileCheck,
+  ArrowRight
 } from "lucide-react";
 import DemoRequestForm from "@/components/forms/Form";
+
 
 const Index = () => {
 
@@ -29,16 +31,17 @@ const Index = () => {
       />
       <Layout>
         <Hero />
+        
 
       {/* Stats Section */}
-      <section className="py-12 sm:py-16 bg-card">
+      <section className="py-12 sm:py-4 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
             {[
               { number: "30+", label: "Años de Experiencia" },
               { number: "500+", label: "Empresas Atendidas" },
               { number: "100%", label: "Cumplimiento Normativo" },
-              { number: "48hs", label: "Entrega de Informes" }
+              { number: "24/48hs", label: "Entrega de Informes" }
             ].map((stat, index) => (
               <div key={index} className="space-y-2 py-4">
                 <div className="text-2xl sm:text-3xl font-bold text-primary">{stat.number}</div>
@@ -46,6 +49,12 @@ const Index = () => {
               </div>
             ))}
           </div>
+          <div className="flex justify-center pt-8 pb-4">
+          <Button variant="hero" size="lg" className="group w-full sm:w-auto min-h-[48px] text-base font-semibold">
+            Contáctanos
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+          </Button>
+        </div>
         </div>
       </section>
 
@@ -152,7 +161,7 @@ const Index = () => {
           Solicitar turno
         </Button>
       </Link>
-      <Link 
+      {/* <Link 
         to="/agendar-consulta#top"
         aria-label="Contactar por WhatsApp para consultas"
         className="w-full sm:w-auto"
@@ -160,7 +169,7 @@ const Index = () => {
         <Button variant="medical" size="lg" className="w-full sm:w-auto min-h-[48px]">
           Contacto por WhatsApp
         </Button>
-      </Link>
+      </Link> */}
     </div>
   </CardContent>
 </Card>

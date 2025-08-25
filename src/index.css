@@ -155,3 +155,44 @@ All colors MUST be HSL.
 .animate-fade-in-slide {
   animation: fade-in-slide 1s ease-out 0.5s forwards;
 }
+
+/* Logo visibility and scaling based on both width and height for proper responsive behavior */
+.logo-conditional {
+  display: none;
+}
+
+/* Very large screens - biggest logo */
+@media (min-width: 1600px) and (min-height: 800px) {
+  .logo-conditional {
+    display: block;
+    width: 16rem; /* 256px */
+    height: 16rem;
+  }
+}
+
+/* Large desktop screens */
+@media (min-width: 1400px) and (min-height: 700px) and (max-width: 1599px) {
+  .logo-conditional {
+    display: block;
+    width: 14rem; /* 224px */
+    height: 14rem;
+  }
+}
+
+/* Standard desktop/large laptop */
+@media (min-width: 1280px) and (min-height: 600px) and (max-width: 1399px) {
+  .logo-conditional {
+    display: block;
+    width: 12rem; /* 192px */
+    height: 12rem;
+  }
+}
+
+/* Small laptop/large tablet landscape - smallest visible size */
+@media (min-width: 1200px) and (min-height: 500px) and (max-width: 1279px) {
+  .logo-conditional {
+    display: block;
+    width: 10rem; /* 160px */
+    height: 10rem;
+  }
+}

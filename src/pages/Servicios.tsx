@@ -19,15 +19,18 @@ const Servicios = () => {
       title: "Exámenes Preocupacionales",
       content: "Evaluaciones médicas obligatorias para el ingreso laboral, realizadas según la Resolución SRT 37/2010 y adaptadas a los riesgos específicos de cada puesto de trabajo.",
       details: [
-        "Historia clínica ocupacional completa",
-        "Examen físico general y específico",
-        "Laboratorio completo (hemograma, glucemia, colesterol, etc.)",
+        "Examen físico general completo",
+        "Laboratorio completo de ley (hemograma, eritrosedimentación, uremia, glucemia y orina completa)",
         "Radiografía de tórax",
-        "Audiometría y examen otorrinolaringológico",
-        "Examen oftalmológico con agudeza visual",
-        "Espirometría (función pulmonar)",
-        "Electrocardiograma (si corresponde por edad o riesgo)",
-        "Evaluación psicológica (para puestos específicos)"
+        "Electrocardiograma",
+        "Historia clínica con declaración jurada de historial y antecedentes médicos",
+        "Aptitud médica laboral",
+        "Según el puesto a ocupar puede sumarse prestaciones adicionales como pueden ser:",     
+        "    • Audiometría",
+        "    • Radiografía columna cervical o lumbosacra frente y perfil",
+        "    • Evaluaciones psicológicas o psiquiátricas",
+        "    • Electroencefalogramas y/o equilibriometrías",
+        "    • Y más."
       ],
       process: [
         "Coordinación de la cita según disponibilidad",

@@ -9,7 +9,7 @@ const FAQAccordion = () => {
   const faqs = [
     {
       question: "¿Qué incluye un examen preocupacional?",
-      answer: "Según la Resolución SRT 37/2010, incluye: historia clínica ocupacional, examen físico completo, estudios complementarios según el puesto (laboratorio, radiografía de tórax, audiometría, examen visual, espirometría, etc.), evaluación psicológica si corresponde, y emisión de certificado de aptitud médica. Todo el proceso se realiza con protocolos específicos según los riesgos del puesto de trabajo."
+      answer: "Según la Resolución SRT 37/2010, incluye: examen médico físico completo, que abarca y evalúa todos los aparatos y sistemas incluyendo control agudeza visual (cercana y lejana), control bucodental, radiografía de tórax frente, laboratorio de ley completo (hemograma, eritrosedimentación, uremia, glucemia y orina completa), electrocardiograma, declaración jurada de historial y antecedentes médicos y aptitud medica laboral."
     },
     {
       question: "¿Cuánto tarda el proceso desde la cita hasta el informe?",
