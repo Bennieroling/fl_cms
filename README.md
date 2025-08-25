@@ -1,5 +1,5 @@
 # CMS Laboral - Website
-
+Made by Festina Lente with ChatGPT and Claude.
 A modern occupational health services website built for CMS Laboral, providing comprehensive medical examination services and occupational health solutions for businesses in Argentina.
 
 ## Project Overview
