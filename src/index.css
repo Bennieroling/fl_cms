@@ -188,11 +188,38 @@ All colors MUST be HSL.
   }
 }
 
-/* Small laptop/large tablet landscape - smallest visible size */
+/* Small laptop/large tablet landscape */
 @media (min-width: 1200px) and (min-height: 500px) and (max-width: 1279px) {
   .logo-conditional {
     display: block;
     width: 10rem; /* 160px */
     height: 10rem;
+  }
+}
+
+/* Tablet landscape - smaller logo */
+@media (min-width: 1024px) and (min-height: 400px) and (max-width: 1199px) {
+  .logo-conditional {
+    display: block;
+    width: 8rem; /* 128px */
+    height: 8rem;
+  }
+}
+
+/* Small tablet/large mobile landscape - tiny logo */
+@media (min-width: 900px) and (min-height: 350px) and (max-width: 1023px) {
+  .logo-conditional {
+    display: block;
+    width: 6rem; /* 96px */
+    height: 6rem;
+  }
+}
+
+/* Very small screens - smallest logo before disappearing */
+@media (min-width: 800px) and (min-height: 300px) and (max-width: 899px) {
+  .logo-conditional {
+    display: block;
+    width: 4rem; /* 64px */
+    height: 4rem;
   }
 }
