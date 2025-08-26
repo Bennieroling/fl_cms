@@ -88,11 +88,15 @@ const AgendarConsulta: React.FC = () => {
           ></iframe>
         </div> */}
 
+        {/* Email contact form */}
+
         <div ref={contactFormRef} id="contacto">
           <h3 className="text-2xl font-bold text-primary mb-8">Contáctanos</h3>
           <DemoRequestForm />
         </div>
         
+        {/* Custom Location Card */}
+
         <div className="mt-12">
           <Card className="shadow-professional">
             <CardContent className="p-8">

@@ -15,6 +15,9 @@ import {
   TrendingUp
 } from "lucide-react";
 import ContactInfo from "@/components/forms/contact-info";
+import WhoAreWe from "@/components/WhoAreWe";
+import WhatDoWeDo from "@/components/WhatDoWeDo";
+import HowDoWeWork from "@/components/HowDoWeWork";
 
 const Nosotros = () => {
   return (
@@ -61,6 +64,9 @@ const Nosotros = () => {
           })}
         </script>
       </Helmet>
+
+      {/* Main content */}
+
       <Layout>
         <Hero 
           title="Nosotros"
@@ -68,104 +74,21 @@ const Nosotros = () => {
           showLogo={true}
         />
 
-        <section className="py-8 px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-semibold mb-6 text-center">Quiénes somos</h2>
-            <p className="text-center max-w-3xl mx-auto">
-              En CMS Laboral, contamos con más de 30 años de experiencia dedicados al cuidado de la salud en el ámbito laboral. Somos un equipo de profesionales especializados en medicina del trabajo, comprometidos con la prevención, el diagnóstico y el seguimiento de la salud de los trabajadores. Desde nuestras oficinas ubicadas en Av. Corrientes 531, 8vo piso, brindamos soluciones integrales a empresas de todos los rubros, ayudándolas a cumplir con la normativa vigente y, al mismo tiempo, cuidando el recurso más valioso de sus organizaciones: sus empleados. Ofrecemos una amplia gama de servicios, que incluyen exámenes preocupacionales, controles periódicos, evaluaciones médicas específicas, asesoramiento en salud ocupacional y programas de bienestar laboral. En CMS Laboral trabajamos con responsabilidad, ética y cercanía, acompañando a cada cliente con un enfoque personalizado y profesional.
-            </p>
-          </div>
-        </section>
+        {/* Who Are We */}
 
-        <section className="bg-secondary py-14 sm:py-10">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-3xl font-semibold mb-6 text-center">Qué hacemos</h2>
-            </div>
+        <WhoAreWe />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:[&>*:nth-child(n+4)]:lg:transform lg:[&>*:nth-child(n+4)]:lg:translate-x-[calc(50%+12px)]">
-              {[
-                {
-                  icon: UserCheck,
-                  title: "Exámenes preocupacionales",
-                  description: "Historia clínica y estudios médicos para determinar la aptitud laboral."
-                },
-                {
-                  icon: CalendarCheck,
-                  title: "Controles periódicos",
-                  description: "Evaluaciones médicas anuales para cumplir normativa y cuidar la salud."
-                },
-                {
-                  icon: Stethoscope,
-                  title: "Evaluaciones médicas específicas",
-                  description: "Estudios adaptados a los riesgos de cada puesto de trabajo."
-                },
-                {
-                  icon: HeartHandshake,
-                  title: "Asesoramiento en salud ocupacional",
-                  description: "Consultoría para cumplir con la normativa y proteger a los empleados."
-                },
-                {
-                  icon: TrendingUp,
-                  title: "Programas de bienestar laboral",
-                  description: "Iniciativas de prevención y seguimiento para mejorar el bienestar."
-                }
-              ].map((service, index) => (
-                <Link key={index} to="/servicios" className="group">
-                  <Card className="shadow-professional hover:shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-200">
-                    <CardContent className="p-4 sm:p-6 text-center">
-                      <div className="w-12 h-12 bg-gradient-medical rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <service.icon className="w-6 h-6 text-white" aria-hidden="true" />
-                      </div>
-                      <h3 className="text-base sm:text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
-                      <p className="text-sm sm:text-base text-muted-foreground">{service.description}</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* What Do We Do */}
 
-        <section className="py-16 sm:py-20">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-3xl font-semibold mb-6 text-center">Cómo trabajamos</h2>
-            </div>
+        <WhatDoWeDo />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {[
-                {
-                  icon: ShieldCheck,
-                  title: "Responsabilidad",
-                  description: "Trabajamos con responsabilidad en cada servicio, priorizando la salud de los trabajadores."
-                },
-                {
-                  icon: Handshake,
-                  title: "Ética y cercanía",
-                  description: "Mantenemos una relación ética y cercana con cada cliente y sus empleados."
-                },
-                {
-                  icon: UserCheck,
-                  title: "Enfoque personalizado",
-                  description: "Acompañamos a cada empresa con un enfoque profesional y adaptado a sus necesidades."
-                }
-              ].map((feature, index) => (
-                <Card key={index} className="shadow-professional hover:shadow-lg transition-shadow">
-                  <CardContent className="p-4 sm:p-6 text-center">
-                    <div className="w-12 h-12 bg-gradient-medical rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <feature.icon className="w-6 h-6 text-white" aria-hidden="true" />
-                    </div>
-                    <h3 className="text-base sm:text-lg font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-sm sm:text-base text-muted-foreground">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* How Do We Work */}
 
-        <section className="bg-secondary py-16 px-4">
+        <HowDoWeWork />
+
+
+        {/* Custom location card, full page width */}
+        <section className="bg-secondary py-8 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-semibold mb-6">Dónde estamos</h2>
             <ContactInfo />

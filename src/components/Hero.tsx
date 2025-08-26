@@ -68,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({
               </div>
               
               {/* Text content - moved slightly left */}
-              <div className="text-center flex-1 max-w-4xl ml-4 mr-6 lg:mr-12">
+              <div className="text-center flex-1 max-w-4xl ml-4 mr-6 lg:mr-14">
                 {/* Badge centered above text content - only for home page */}
                 {showBadge && (
                   <div className="text-center mb-4 sm:mb-6">
@@ -80,7 +80,7 @@ const Hero: React.FC<HeroProps> = ({
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 sm:mb-6">
                   {title}
                 </h1>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto px-2">
+                <p className="text-sm sm:text-base md:text-lg lg:text-l text-white/90 max-w-3xl mx-auto px-2">
                   {description}
                 </p>
               </div>
