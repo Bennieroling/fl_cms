@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout"
+import Hero from "@/components/Hero"
 import { Helmet } from "react-helmet-async";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -61,46 +62,11 @@ const Nosotros = () => {
         </script>
       </Helmet>
       <Layout>
-        <section className="relative overflow-hidden h-[250px] md:h-[450px]">
-          <div className="absolute inset-0">
-            <picture>
-              <source 
-                media="(min-width: 768px)" 
-                srcSet="/hero-1280.webp 1280w" 
-                sizes="100vw"
-                type="image/webp" 
-              />
-              <source 
-                media="(min-width: 768px)" 
-                srcSet="/hero-1280.jpg 1280w" 
-                sizes="100vw"
-                type="image/jpeg" 
-              />
-              <source 
-                srcSet="/hero-640.webp 640w" 
-                sizes="100vw"
-                type="image/webp" 
-              />
-              <img 
-                src="/hero-640.jpg" 
-                alt="Servicios de salud ocupacional" 
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-                width="1280"
-                height="450"
-              />
-            </picture>
-            <div className="absolute inset-0 bg-primary/80" />
-          </div>
-          <div className="relative container mx-auto px-4 py-32 text-center text-white animate-fade-in">
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">Nosotros</h1>
-            <p className="text-lg max-w-2xl mx-auto mb-6">
-              Más de 30 años cuidando la salud en el ámbito laboral.
-            </p>
-            
-          </div>
-        </section>
+        <Hero 
+          title="Nosotros"
+          description="Más de 30 años cuidando la salud en el ámbito laboral."
+          showLogo={true}
+        />
 
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto">

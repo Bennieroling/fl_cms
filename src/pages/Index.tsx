@@ -30,7 +30,12 @@ const Index = () => {
         image="/og-image.png"
       />
       <Layout>
-        <Hero />
+        <Hero 
+          title="Gestión Profesional de la Salud Laboral"
+          description="Medicina laboral personalizada para tu empresa: atención en tu oficina o en nuestro centro, exámenes, control de ausentismo, consultoría médica y prevención. Cumplí con la normativa, cuidá a tu equipo y mejorá tus resultados."
+          showBadge={true}
+          showLogo={true}
+        />
         
 
       {/* Stats Section */}

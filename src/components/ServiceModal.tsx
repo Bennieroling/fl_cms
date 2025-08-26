@@ -1,5 +1,5 @@
 import React from 'react';
-import { X } from 'lucide-react';
+import { X, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface ServiceModalProps {
@@ -73,13 +73,21 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
                 <h3 className="text-lg font-semibold mb-3 text-primary">
                   ¿Qué incluye?
                 </h3>
-                <ul className="space-y-2">
-                  {details.map((detail, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="text-green-600 mr-2 mt-1">✓</span>
-                      <span className="text-muted-foreground">{detail}</span>
-                    </li>
-                  ))}
+                <ul className="space-y-3">
+                  {details.map((detail, index) => {
+                    const isSubItem = detail.trim().startsWith('•') || detail.trim().startsWith('    •');
+                    
+                    return (
+                      <li key={index} className={`flex items-start ${isSubItem ? 'ml-6' : ''}`}>
+                        {isSubItem ? (
+                          <span className="text-muted-foreground mr-3 mt-0.5 flex-shrink-0">•</span>
+                        ) : (
+                          <Check className="text-green-600 w-4 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                        )}
+                        <span className="text-foreground">{detail.replace(/^\s*•\s*/, '')}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}

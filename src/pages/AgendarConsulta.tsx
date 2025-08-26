@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import Hero from "@/components/Hero";
 import DemoRequestForm from "@/components/forms/Form"; 
 import { Card, CardContent } from "@/components/ui/card";
 import ContactInfo from "@/components/forms/contact-info";
@@ -62,29 +63,11 @@ const AgendarConsulta: React.FC = () => {
         </script>
       </Helmet>
       <Layout>
-      {/* Hero */}
-      {/* Hero */}
-        <section className="relative overflow-hidden h-[300px] sm:h-[350px] md:h-[450px]">
-          <div className="absolute inset-0">
-            <img 
-              src="/hero-640.jpg" 
-              alt="Servicios de salud ocupacional" 
-              className="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-              width="1280"
-              height="450"
-            />
-            <div className="absolute inset-0 bg-primary/80" />
-          </div>
-          <div className="relative container mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32 text-center text-white animate-fade-in">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Contacto</h1>
-             <p className="text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
-            ¿Querés conocer nuestros planes, solicitar un turno o simplemente hacernos una consulta? Completá el formulario y nuestro equipo te responderá a la brevedad.
-
-        </p>
-          </div>
-        </section>
+        <Hero 
+          title="Contacto"
+          description="¿Querés conocer nuestros planes, solicitar un turno o simplemente hacernos una consulta? Completá el formulario y nuestro equipo te responderá a la brevedad."
+          showLogo={true}
+        />
 
       <div id="top" className="max-w-2xl mx-auto mt-8 sm:mt-14 mb-16 sm:mb-20 scroll-mt-24 px-4 sm:px-6">
 

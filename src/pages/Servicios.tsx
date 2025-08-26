@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
+import Hero from "@/components/Hero";
 import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Stethoscope, UserCheck, FileText, CalendarCheck, Brain, ShieldCheck, UserX, FileCheck, BriefcaseMedical, Users } from "lucide-react";
@@ -126,47 +127,13 @@ const Servicios = () => {
         path="/servicios"
       />
       <Layout>
-        <div>
-        {/* Hero */}
-      <section className="relative overflow-hidden h-[250px] md:h-[450px]">
-          <div className="absolute inset-0">
-            <picture>
-              <source 
-                media="(min-width: 768px)" 
-                srcSet="/hero-1280.webp 1280w" 
-                sizes="100vw"
-                type="image/webp" 
-              />
-              <source 
-                media="(min-width: 768px)" 
-                srcSet="/hero-1280.jpg 1280w" 
-                sizes="100vw"
-                type="image/jpeg" 
-              />
-              <source 
-                srcSet="/hero-640.webp 640w" 
-                sizes="100vw"
-                type="image/webp" 
-              />
-              <img 
-                src="/hero-640.jpg" 
-                alt="Servicios de salud ocupacional" 
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-                width="1280"
-                height="450"
-              />
-            </picture>
-            <div className="absolute inset-0 bg-primary/80" />
-          </div>
-          <div className="relative container mx-auto px-4 py-32 text-center text-white animate-fade-in">
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">Nuestros Servicios</h1>
-            <p className="text-lg max-w-2xl mx-auto">
-          Soluciones integrales en salud ocupacional para empresas de todos los tamaños.
-        </p>
-          </div>
-        </section>
+    
+        <Hero 
+          title="Nuestros Servicios"
+          description="Soluciones integrales en salud ocupacional para empresas de todos los tamaños."
+          showLogo={true}
+        />
+            <div>
 
         {/* Services Grid */}
         <section className="py-16 px-4 max-w-6xl mx-auto">
