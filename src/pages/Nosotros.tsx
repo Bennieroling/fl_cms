@@ -68,7 +68,7 @@ const Nosotros = () => {
           showLogo={true}
         />
 
-        <section className="py-16 px-4">
+        <section className="py-8 px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-semibold mb-6 text-center">Quiénes somos</h2>
             <p className="text-center max-w-3xl mx-auto">
@@ -77,7 +77,7 @@ const Nosotros = () => {
           </div>
         </section>
 
-        <section className="bg-secondary py-16 sm:py-20">
+        <section className="bg-secondary py-14 sm:py-10">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-3xl font-semibold mb-6 text-center">Qué hacemos</h2>
