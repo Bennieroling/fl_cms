@@ -37,6 +37,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
       <Footer />
       <ChatWidget />
+      
     </div>
   );
 };
