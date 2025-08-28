@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { initBot, sendToBot } from "@/lib/chatbot";
+import { initBot, sendToBot, checkChatAvailability } from "@/lib/chatbot";
 
 
 const ChatWidget: React.FC = () => {
@@ -11,6 +11,18 @@ const ChatWidget: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [greeted, setGreeted] = useState(false);
+  const [isChatAvailable, setIsChatAvailable] = useState(false);
+  const [hasCheckedAvailability, setHasCheckedAvailability] = useState(false);
+
+  // Check chat availability on component mount
+  useEffect(() => {
+    const checkAvailability = async () => {
+      const available = await checkChatAvailability();
+      setIsChatAvailable(available);
+      setHasCheckedAvailability(true);
+    };
+    checkAvailability();
+  }, []);
 
   // Scroll to bottom on new message
   useEffect(() => {
@@ -92,6 +104,11 @@ const ChatWidget: React.FC = () => {
   };
 
   const handleClose = () => setIsOpen(false);
+
+  // Don't render anything if we haven't checked availability yet or if chat is not available
+  if (!hasCheckedAvailability || !isChatAvailable) {
+    return null;
+  }
 
   return (
     <>
