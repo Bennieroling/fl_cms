@@ -42,6 +42,7 @@ const Hero: React.FC<HeroProps> = ({
             fetchPriority="high"
             decoding="sync"
             loading="eager"
+            className="w-full h-full object-cover"
           />
         </picture>
         <div className="absolute inset-0 bg-primary/80" />
