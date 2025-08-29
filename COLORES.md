@@ -9,8 +9,8 @@ Esta guía muestra todos los colores utilizados en nuestro sitio web, con sus c�
 - **Uso**: Este es nuestro color corporativo principal. Lo verás en:
   - Botones principales ("Aceptar todo", "Contactar")
   - Iconos importantes (escudo de privacidad, servicios destacados)
-  - Enlaces y elementos interactivos
-  - Fondos de tarjetas de servicios
+  - Enlaces y elementos interactivos.
+  - Fondos de tarjetas de servicios.
 
 ### Verde Médico
 - **Código**: `#2d8659`
