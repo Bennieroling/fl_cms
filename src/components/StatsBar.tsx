@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { 
   ArrowRight
 } from "lucide-react";
-
+import { Link } from "react-router-dom";
 
 const StatsBar = () => {
 
@@ -24,10 +24,12 @@ return (
             ))}
           </div>
           <div className="flex justify-center pt-8 pb-4">
+          <Link to="/agendar-consulta#top">
           <Button variant="hero" size="lg" className="group w-full sm:w-auto min-h-[48px] text-base font-semibold">
             Contáctanos
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
           </Button>
+          </Link>
         </div>
         </div>
       </section>
