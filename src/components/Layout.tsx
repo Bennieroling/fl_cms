@@ -2,7 +2,6 @@ import React from "react";
 import Footer from "@/components/Footer";
 import MenubarMain from "@/components/ui/menubar";
 import { Link } from "react-router-dom";
-import ChatWidget from "./ChatWidget";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -36,7 +35,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </main>
 
       <Footer />
-      <ChatWidget />
+      
       
     </div>
   );
