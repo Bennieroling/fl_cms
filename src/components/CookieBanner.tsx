@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { X, Settings, Check, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { hasDecided, acceptAll, rejectAnalytics, loadGA, getConsent, updateConsent } from '@/lib/consent';
+import { hasDecided, acceptAll, rejectAnalytics, getConsent, updateConsent } from '@/lib/consent';
 
 const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -61,16 +61,11 @@ const CookieBanner = () => {
     }
   }, [showSettings]);
 
-  const handleAcceptAll = async () => {
+  const handleAcceptAll = () => {
     setIsLoading(true);
     try {
-      const state = acceptAll();
-      if (state.analytics) {
-        await loadGA();
-      }
+      acceptAll();
       setIsVisible(false);
-    } catch (error) {
-      console.error('Failed to load GA:', error);
     } finally {
       setIsLoading(false);
     }
@@ -81,17 +76,12 @@ const CookieBanner = () => {
     setIsVisible(false);
   };
 
-  const handleSaveSettings = async () => {
+  const handleSaveSettings = () => {
     setIsLoading(true);
     try {
-      const state = updateConsent(analyticsEnabled);
-      if (state.analytics) {
-        await loadGA();
-      }
+      updateConsent(analyticsEnabled);
       setShowSettings(false);
       setIsVisible(false);
-    } catch (error) {
-      console.error('Failed to update consent:', error);
     } finally {
       setIsLoading(false);
     }
