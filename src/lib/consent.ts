@@ -1,5 +1,6 @@
-// Google Analytics 4 Consent Management
-// Measurement ID: G-9EQQX1N1Z0
+// Google Tag Manager Consent Management
+// GTM Container ID: GTM-KVH9L3GT
+// GA4 Measurement ID: G-9EQQX1N1Z0
 
 export type ConsentState = {
   analytics: boolean;
@@ -8,9 +9,7 @@ export type ConsentState = {
 
 const STORAGE_KEY = 'cms-consent';
 const GA_MEASUREMENT_ID = 'G-9EQQX1N1Z0';
-
-// Module-level guard to prevent multiple GA loads
-let gaLoaded = false;
+const GTM_CONTAINER_ID = 'GTM-KVH9L3GT';
 
 // Declare gtag function types
 declare global {
@@ -78,69 +77,21 @@ export function updateConsentToGtag(state: ConsentState): void {
 }
 
 /**
- * Load Google Analytics 4 script dynamically
+ * Send custom event to GTM dataLayer
  */
-export function loadGA(): Promise<void> {
-  return new Promise((resolve, reject) => {
-    if (typeof window === 'undefined') {
-      reject(new Error('Window not available'));
-      return;
-    }
+export function pushToDataLayer(eventData: Record<string, unknown>): void {
+  if (typeof window !== 'undefined' && window.dataLayer) {
+    window.dataLayer.push(eventData);
+  }
+}
 
-    // Module-level guard - only load once
-    if (gaLoaded) {
-      resolve();
-      return;
-    }
-
-    // Check if already loaded
-    if (document.querySelector(`script[src*="${GA_MEASUREMENT_ID}"]`)) {
-      gaLoaded = true;
-      resolve();
-      return;
-    }
-
-    // Initialize dataLayer if not exists
-    if (!window.dataLayer) {
-      window.dataLayer = [];
-    }
-
-    // Define gtag function if not exists
-    if (!window.gtag) {
-      window.gtag = function(...args: unknown[]) {
-        window.dataLayer.push(args);
-      };
-    }
-
-    // Create and load the script
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-    
-    script.onload = () => {
-      // Initialize GA
-      window.gtag('js', new Date());
-      window.gtag('config', GA_MEASUREMENT_ID, {
-        anonymize_ip: true,
-        cookie_domain: 'cms.com.ar',
-        cookie_update: true,
-        cookie_flags: 'SameSite=Lax;Secure',
-        allow_google_signals: false,
-        allow_ad_personalization_signals: false
-      });
-      
-      gaLoaded = true;
-      console.log('✅ Google Analytics loaded with consent');
-      resolve();
-    };
-    
-    script.onerror = () => {
-      console.error('❌ Failed to load Google Analytics');
-      reject(new Error('Failed to load GA script'));
-    };
-
-    document.head.appendChild(script);
-  });
+/**
+ * Check if GTM is loaded and ready
+ */
+export function isGTMLoaded(): boolean {
+  return typeof window !== 'undefined' && 
+         window.dataLayer !== undefined && 
+         document.querySelector(`script[src*="${GTM_CONTAINER_ID}"]`) !== null;
 }
 
 /**
@@ -169,6 +120,13 @@ export function acceptAll(): ConsentState {
   setConsent(state);
   applyConsentToGtag(state);
   
+  // Send consent event to GTM
+  pushToDataLayer({
+    event: 'consent_update',
+    consent_type: 'accept_all',
+    analytics_consent: true
+  });
+  
   return state;
 }
 
@@ -184,6 +142,13 @@ export function rejectAnalytics(): ConsentState {
   setConsent(state);
   applyConsentToGtag(state);
   clearGACookies();
+  
+  // Send consent event to GTM
+  pushToDataLayer({
+    event: 'consent_update',
+    consent_type: 'reject_analytics',
+    analytics_consent: false
+  });
   
   return state;
 }
