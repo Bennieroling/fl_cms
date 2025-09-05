@@ -57,7 +57,7 @@ const Hero: React.FC<HeroProps> = ({
               {/* Logo - positioned to the left */}
               <div className="flex flex-col justify-center h-full flex-shrink-0">
                 <img
-                  src="/white.png"
+                  src="/003366_1.png"
                   alt="CMS Laboral Logo"
                   className="logo-conditional opacity-0 animate-fade-in-slide"
                   loading="lazy"
